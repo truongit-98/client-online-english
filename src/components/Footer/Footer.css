@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Economica|Roboto&display=swap');
+:root{
+  --roboto: "Roboto", sans-serif;
+  --Economica: "Economica', sans-serif";
+}
+footer.footer-wrapper {
+  position: relative;
+  margin-top: 40px;
+}
+
+a.footer-link {
+  text-decoration: none;
+  font-family: opensansregular;
+  font-size: 13px;
+  line-height: 21px;
+  color: #212121;
+  margin: 15px 0px 0px;
+  display: block;
+  text-decoration: none;
+  outline: 0px;
+}
+
+h5.footer-item {
+  line-height: 22px;
+  min-height: 44px;
+}
+p.footer-bottom {
+  text-align: center;
+  text-transform: capitalize;
+}

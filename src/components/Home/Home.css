@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css?family=Economica|Roboto&display=swap');
+:root{
+  --roboto: "Roboto", sans-serif;
+  --Economica: "Economica', sans-serif";
+}
+/* -----benner----- */
+section.benner-wrapper {
+  background: linear-gradient(#7FD5FF , #00BAF4 );
+  position: relative;
+}
+
+section.benner-wrapper .row {
+  text-align: center;
+  padding: 100px;
+}
+
+div#logo {
+  color: #fff;
+}
+
+h1#logoTitle {
+  font-size: 55px;
+  font-family: var(--Economica);
+}
+
+p#logoContent {
+  font-size: 16px;
+}
+
+div#title-left-top {
+  color: #fff;
+}
+
+h1#title {
+  font-size: 35px;
+  font-family: var(--Economica);
+}
+
+p#content-title {
+  width: 80%;
+  margin: 0 auto;
+  color: #fffffff2;
+  margin-bottom: 25px;
+}
+
+a#btn-start {
+  text-decoration: none;
+  font-family: opensanssemibold;
+  font-size: 23px;
+  color: #fff;
+  display: block;
+  width: 280px;
+  height: 69px;
+  line-height: 65px;
+  text-align: center;
+  text-decoration: none;
+  outline: 0px;
+  background-color: #FEBF10;
+  border-bottom: 5px solid #FFB600;
+  border-radius: 40px;
+  margin: auto;
+  position: relative;
+  z-index: 1;
+}
+
+p#content-title-free {
+  position: relative;
+  z-index: 1;
+}
+
+p#content-title-free a {
+  font-family: opensanslight;
+  font-size: 15px;
+  color: #fff;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 0px;
+  display: inline-block;
+  text-decoration: none;
+}
+div#img-benner {
+  display: inline-block;
+  position: absolute;
+  bottom: 0px;
+  left: 15%;
+  animation: animationlogo 1.4s forwards;
+  opacity: 0;
+}
+@keyframes animationlogo{
+  0%{transform: translateX(-200px); opacity: 0;}
+  50%{transform: translateX(50px); opacity: 0.6;}
+  80%{transform: translateX(0px); opacity: 0.6;}
+  100%{transform: translateX(10px); opacity: 1;}
+}
+
+div#img-benner img {
+  height: 250px;
+}
+
+a#btn-start:hover {
+  background-color: #d0a70d;
+}
+/* ----benner end---- */
+
+/* ----introduce start----- */
+section.introduce-wrapper {
+  margin-top: 60px;
+  position: relative;
+  text-align: center;
+}
+
+h2#introduce-Title-item {
+  text-transform: uppercase;
+  font-family: var(--Roboto);
+  color: #00c5f9;
+  font-size: 32px;
+  letter-spacing: 1px;
+  font-family: opensansbold!important;
+  font-weight: 600;
+}
+
+p#introduce-Title-content {
+  width: 47%;
+  margin: 0 auto;
+  color: #000000a8;
+  margin-top: 15px;
+  font-family: opensanslight;
+  font-size: 17px;
+}
+/* section 2 */
+.card {
+  border: none !important;
+  box-shadow: 0px 0px 5px 1px rgba(44, 207, 254, .5);
+}
+
+h3.card-Title {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+p.card-Content {
+  width: 80%;
+  margin: 0 auto;
+  color: #000000a1;
+}
+
+.card-icon {
+  margin-bottom: 30px;
+}
+
+a.card-link {
+  font-size: 18px;
+  font-family: monospace;
+}
+
+div#introduct-title {
+  margin-bottom: 40px;
+}
+
+.card-icon i {
+  background: #febf10;
+  display: inline-block;
+  padding: 25px;
+  border-radius: 50%;
+  font-size: 26px;
+}
+.card {border-radius: 20px;}
+
+.card:hover {
+    transform: translateY(-5px);
+    transition: 0.4s;
+}
+
+.card {
+    cursor: pointer;
+}
+/* section2 end */
+/* section3 start */
+section.caurse-wrapper {
+  margin-top: 60px;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+h5#caurse-title-one {
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+p#caurse-title-tow {
+  font-size: 15px;
+  margin-top: 30px;
+  opacity: 0.9;
+}
+.card.i2 {
+  width: 15rem;
+  margin-top: 20px;
+}
+.card-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card.i2 {
+  margin-right: 30px;
+}
+
+p.card-text {
+  font-size: 13px;
+  opacity: 0.6;
+}
+
+a.btn.btn-primary {
+  width: 100%;
+  background: #15bef5;
+  border: none;
+}

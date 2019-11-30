@@ -1,0 +1,14 @@
+.music-video {
+	display: flex;
+	margin: 20px 0px;
+}
+
+.music-contet {
+	width: 45%;
+	margin: auto;
+	font-family: initial;
+}
+
+.music-contet h6 {
+	font-size: 20px;
+}

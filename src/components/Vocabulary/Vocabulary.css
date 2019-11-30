@@ -1,0 +1,28 @@
+.vocabulary-item-title {
+	background: linear-gradient(to bottom, #7FD5FF 0% , #00BAF4 100%);
+	background-size: 1314px 320px;
+	background-position: center -85px;
+	padding: 0px 15px;
+}
+
+h2.Title-text {
+	color: #fff;
+	font-weight: 300;
+	padding-top: 40px;
+}
+
+p.Title-item-text {
+	color: #fff;
+	padding-bottom: 35px;
+}
+
+.container.body {
+	text-align: center;
+}
+
+a.card-link {
+	font-family: serif;
+}
+.container.body .col-md-3 {
+	margin-top: 30px;
+}

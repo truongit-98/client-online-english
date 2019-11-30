@@ -1,0 +1,99 @@
+.container.detail-voca {
+	margin-top: 30px;
+}
+.detail-body {
+	display: flex !important;
+	margin-top: 20px;
+}
+
+.detail-body-item {
+	width: 50%;
+	height: 100%;
+}
+
+button.btn.btn-success {
+	display: block;
+}
+
+textarea {
+	border-radius: 10px;
+	outline: none;
+}
+
+button.btn.btn-success {
+	width: 303px;
+}
+span {
+	font-size: 20px;
+	font-family: serif;
+	margin-right: 10px;
+}
+.tab-content {
+	text-align: center;
+}
+
+button.btn.btn-success {
+	margin: auto;
+}
+
+.detail-body-item p {
+	margin: 0;
+}
+.slick-prev:before, .slick-next:before {
+	color: black !important;
+}
+span {
+	color: #00c5f9;
+}
+
+button.btn.btn-success {
+	background: #fff200de;
+	border: none;
+	color: black;
+}
+.tab-content.i1 {
+	margin: 50px 20px;
+}
+
+.tab-content.i1 {
+	background: #0000000a;
+	border-radius: 20px;
+	padding: 74px 0px;
+}
+
+.detail-body-item h5 {
+	font-family: sans-serif;
+}
+button.btn.btn-success {
+	font-family: serif;
+	font-size: 15px;
+	font-weight: 600;
+}
+.hint-sound {
+	display: flex;
+	justify-content: center;
+}
+
+.volum {
+	padding: 0px 28px;
+	cursor: pointer;
+	line-height: -15px;
+}
+
+.goi-y {
+	margin-right: 66px;
+}
+
+.detail-body-item.i1 {
+	width: 100%;
+	text-align: center;
+	margin: 0;
+}
+.goi-y.i1 {
+	margin: 0;
+}
+textarea {
+	resize: none;
+	padding: 12px;
+  box-sizing: border-box;
+}

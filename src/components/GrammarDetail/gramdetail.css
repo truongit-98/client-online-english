@@ -1,0 +1,23 @@
+.gram-wrap {
+	display: flex;
+	margin: 30px 0px;
+}
+
+.gram-content {
+	margin: 0 auto;
+}
+.detail-relate-to-body {
+	display: flex;
+}
+
+h6#relate-title {
+	font-size: 27px;
+	font-family: initial;
+	background: #00c5f9;
+	display: inline;
+	padding: 4px 4px;
+	color: #343a40;
+	position: relative;
+}
+
+h6#relate-title:before {content: "";position: absolute;width: 65rem;height: 2px;background: #00c5f9;bottom: 0;}

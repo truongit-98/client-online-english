@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=Economica|Roboto&display=swap');
+:root{
+  --roboto: "Roboto", sans-serif;
+  --Economica: "Economica', sans-serif";
+}
+nav.navbar.navbar-expand-lg.navbar-light.bg-light {
+  background: none !important;
+}
+
+.header {
+  background-color: #00c5f9;
+}
+form.form-inline {
+  position: relative;
+  float: left;
+  margin-right: 160px;
+  width: 410px;
+}
+a.navbar-brand {
+  font-family: var(--Economica);
+  font-size: 20px;
+}
+span.title-logo {
+  font-size: 10px;
+  position: absolute;
+  bottom: -3px;
+  left: 70px;
+  color: #fff200;
+}
+
+a.navbar-brand {
+  position: relative;
+}
+button.btn.btn-outline-success {
+  border: none;
+  color: #17a2b8;
+  position: absolute;
+  top: 3px;
+}
+
+input.mr-sm-2.form-control {
+  width: 100%;
+  height: 36px;
+  border: 0px;
+  border-radius: 4px;
+  padding-left: 47px;
+}
+
+i.fas.fa-search {
+  font-size: 20px;
+}
+
+button.btn.btn-outline-success:hover {
+  background: none;
+}
+
+.navbar-nav {
+  margin-left: 15px;
+  float: left;
+}
+
+a.navbar-brand {
+  margin: auto 30px auto 0px;
+  color: #fff !important;
+}
+
+a.dropdown-toggle.nav-link {
+  color: #fff !important;
+}
+a.sigin {
+  color: #0e0e0e;
+  border-radius: 22px;
+  padding: 3px 20px;
+  margin: 0px 10px 0px 10px;
+  background: #FFF200;
+  width: 110px;
+  text-align: center;
+  border-radius: 19px;
+  font-size: 15px;
+  font-family: opensanssemibold;
+  color: #231F20;
+  display: inline-block;
+  height: 30px;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+a.sigin:hover {
+  background: #f1e403;
+}
+.dropdown-menu.show {
+  top: 46px;
+  border-radius: 0px;
+}
