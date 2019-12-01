@@ -10,10 +10,6 @@ class DetailVoca extends Component {
   componentDidMount(){
     this.props.getThemeVocabulary(this.props.match.params.topicName);
   }
-  hanldeClick = (event) => {
-    event.preventDefault();
-    console.log("kết quả xử lý ở đây");
-  }
   render() {
     const {vocabularyItem} = this.props.vocabulary;
     const settings = {

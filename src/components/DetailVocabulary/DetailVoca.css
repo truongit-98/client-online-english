@@ -68,6 +68,7 @@ button.btn.btn-success {
 	font-family: serif;
 	font-size: 15px;
 	font-weight: 600;
+	margin-bottom: 10px;
 }
 .hint-sound {
 	justify-content: center;

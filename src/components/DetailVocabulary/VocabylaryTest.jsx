@@ -1,6 +1,42 @@
 import React, { Component } from 'react';
+import Swal from 'sweetalert2';
 
 class VocabylaryTest extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: '',
+    }
+  }
+  hanldeOnchenge = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    this.setState({
+        [name] : value
+    });
+  }
+  hanldeClick = (event) => {
+    event.preventDefault();
+    if(this.state.name === this.props.word){
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Đáp án chính xác!',
+        showConfirmButton: false,
+        timer: 1500
+      })
+
+    }
+    else{ 
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Đáp án sai!',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    }
+  }
   onClickAudio = (event) => {
     event.preventDefault();
     var snd = new Audio(this.props.pronounce);
@@ -21,7 +57,7 @@ class VocabylaryTest extends Component {
           </div>
         </div>
         <div className="detail-body-item">
-          <textarea name="" id="" cols="40" rows="4" placeholder="Gõ đáp án của bạn vào đây."></textarea>
+          <textarea name="name" id="" onChange={this.hanldeOnchenge} cols="40" rows="4" placeholder="Gõ đáp án của bạn vào đây."></textarea>
           <button type="button" className="btn btn-success" onClick={(event) =>this.hanldeClick(event)}>Kiểm tra</button>
         </div>
       </div>
