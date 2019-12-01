@@ -8,8 +8,8 @@ export const getDataTopic = () => dispatch=> {
     dispatch({
       type: actionType.get_data_topic,
       payload_topic: res.data,
-		})
-	)
+    })
+  )
 }
 //api chi tiết topic
 export const getThemeVocabulary = (topicName) => dispatch=> {
@@ -19,5 +19,5 @@ export const getThemeVocabulary = (topicName) => dispatch=> {
       type: actionType.get_data_topic_vocabulary,
       payload_vocaTheme: res.data[0].Vocabularies,
     })
-	)
+  )
 }
