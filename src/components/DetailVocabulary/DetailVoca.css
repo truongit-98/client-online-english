@@ -70,7 +70,6 @@ button.btn.btn-success {
 	font-weight: 600;
 }
 .hint-sound {
-	display: flex;
 	justify-content: center;
 }
 
@@ -96,4 +95,24 @@ textarea {
 	resize: none;
 	padding: 12px;
   box-sizing: border-box;
+}
+div#item {
+	width: 50%;
+	text-align: initial;
+	margin: 0 auto;
+	background: #fff200;
+	padding: 8px;
+}
+div#test-item {
+	background: #fff200;
+	text-align: left;
+	width: 80%;
+	margin: 0 auto;
+	padding: 4px;
+}
+
+div#test-item .hint-sound {
+	text-align: left;
+	display: block;
+	/* margin: auto; */
 }
