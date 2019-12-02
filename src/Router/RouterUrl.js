@@ -11,6 +11,8 @@ import MusicDetail from '../components/MusicDetail/MusicDetail';
 import GrammarDetail from '../components/GrammarDetail/GrammarDetail';
 import SigIn from '../components/Account/SigIn';
 import SigUp from '../components/Account/SingUp';
+import VocabularySearch from '../components/Vocabulary/VocabularySearch';
+import ListVocabulary from '../components/Vocabulary/ListVocabulary';
 
 class RouterUrl extends Component {
   render() {
@@ -18,6 +20,7 @@ class RouterUrl extends Component {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/vocabulary/" exact component={Vocabulary} />
+        <Route path="/ListVocabulary/" exact component={ListVocabulary} />
         <Route path="/DetailVoca/:topicName" exact component={DetailVoca} />
         <Route path="/TestToeic/" exact component={TestToeic} />
         <Route path="/TestToeicDetail/" exact component={TestToeicDetail} />
@@ -25,6 +28,7 @@ class RouterUrl extends Component {
         <Route path="/GrammarDetail/" exact component={GrammarDetail} />
         <Route path="/Music/" exact component={Music} />
         <Route path="/MusicDetail/" exact component={MusicDetail} />
+        <Route path="/Search" exact component={VocabularySearch} />
         <Route path="/SigIn/" exact component={SigIn} />
         <Route path="/SigUp/" exact component={SigUp} />
       </Switch>

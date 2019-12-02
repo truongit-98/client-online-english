@@ -11,6 +11,15 @@ export const getDataTopic = () => dispatch=> {
     })
   )
 }
+export const getlistDataVocabulary = () => dispatch=> {
+  axios.get(`/api/vocabularies?limit=12&offset=12`)
+  .then(res =>
+    dispatch({
+      type: actionType.get_data_listVocabulary,
+      payload_list: res.data,
+    })
+  )
+}
 //api chi tiết topic
 export const getThemeVocabulary = (topicName) => dispatch=> {
   axios.get(`/api/topic/${topicName}/vocabularies`)
@@ -21,3 +30,17 @@ export const getThemeVocabulary = (topicName) => dispatch=> {
     })
   )
 }
+//api search
+export const searchData = ((history, name) => dispatch => {
+  axios.get(`/api/vocabularies/search?q=${name}`)
+  .then(res =>
+    dispatch({
+      type: actionType.get_data_search_vocabulary,
+      payload_search: history.push({
+        pathname: "/Search",
+        search: `?q=${name}`,
+        state: {item: res.data}
+      })
+    })
+  );
+});
