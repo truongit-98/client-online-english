@@ -43,23 +43,23 @@ class SigUp extends Component {
                   ) : null 
                 }
                 <form className="form-signin" onSubmit={this.onSubmit}>
-									<div className="form-label-group">
-										<input type="text" name="userName" id="name" onChange={this.onChange} className="form-control" placeholder="Tên tài khoản" required autoFocus />
-										<label htmlFor="name">Tên tài khoản</label>
-									</div>
-									<div className="form-label-group">
-										<input type="email" name="email" id="inputEmail" onChange={this.onChange} className="form-control" placeholder="Email address" required autoFocus />
-										<label htmlFor="inputEmail">Email address</label>
-									</div>
-									<div className="form-label-group">
-										<input type="password" name="passWord" id="inputPassword" onChange={this.onChange} className="form-control" placeholder="Password" required />
-										<label htmlFor="inputPassword">Password</label>
-									</div>
-									<button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign up</button>
-									<hr className="my-4" />
-									<button className="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i className="fab fa-google mr-2" /> Sign in with Google</button>
-									<button className="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i className="fab fa-facebook-f mr-2" /> Sign in with Facebook</button>
-								</form>
+                  <div className="form-label-group">
+                    <input type="text" name="userName" id="name" onChange={this.onChange} className="form-control" placeholder="Tên tài khoản" required autoFocus />
+                    <label htmlFor="name">Tên tài khoản</label>
+                  </div>
+                  <div className="form-label-group">
+                    <input type="email" name="email" id="inputEmail" onChange={this.onChange} className="form-control" placeholder="Email address" required autoFocus />
+                    <label htmlFor="inputEmail">Email address</label>
+                  </div>
+                  <div className="form-label-group">
+                    <input type="password" name="passWord" id="inputPassword" onChange={this.onChange} className="form-control" placeholder="Password" required />
+                    <label htmlFor="inputPassword">Password</label>
+                  </div>
+                  <button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign up</button>
+                  <hr className="my-4" />
+                  <button className="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i className="fab fa-google mr-2" /> Sign in with Google</button>
+                  <button className="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i className="fab fa-facebook-f mr-2" /> Sign in with Facebook</button>
+                </form>
               </div>
             </div>
           </div>
