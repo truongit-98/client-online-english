@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import {withRouter, Link} from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
+import { connect } from 'react-redux';
+import {searchData} from "../../store/Action/vocabulary_action"
 import './Header.css'
 import {Container,
         Navbar,
@@ -16,7 +18,20 @@ class Header extends Component {
     super(props);
     this.state = {
       loadingBarProgress: 0,
+      name: '',
     }
+  }
+  onChangeSearch = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    this.setState({
+        [name] : value
+    });
+  }
+  onSubmitSearch = (e) => {
+    e.preventDefault();
+    const newName = this.state.name;
+    this.props.searchData(this.props.history, newName);
   }
   complete = () => {
     this.setState({ loadingBarProgress: 100 });
@@ -26,6 +41,19 @@ class Header extends Component {
     this.setState({ loadingBarProgress: 0 });
   };
   render() {
+    const { isAuthenticated} = this.props.auth;
+    const authLinks = (
+      <div className="header-right">
+        <Link className="auth" to="/" onClick={this.complete}><i className="fas fa-user-circle"></i></Link>
+        <Link className="sigin" to="/" onClick={this.complete}>log out</Link>
+      </div>
+    );
+    const guestLinks = (
+      <div className="header-right">
+        <Link className="sigin" to="/SigIn/" onClick={this.complete}>Sig in</Link>
+        <Link className="sigin" to="/SigUp/" onClick={this.complete}>Sig up</Link>
+      </div>
+    );
     return (
       <div className="header">
          <LoadingBar
@@ -47,20 +75,28 @@ class Header extends Component {
                   <Link to="/TestToeic/" className="dropdown-item" onClick={this.complete}><i className="fas fa-book-open mr-2"></i>Test TOEIC</Link>
                 </NavDropdown>
               </Nav>
-              <Form inline>
-                <FormControl type="text" placeholder="What do you want to learn?" className="mr-sm-2" />
-                <Button variant="outline-success"><i className="fas fa-search"></i></Button>
+              <Form inline onSubmit={this.onSubmitSearch}>
+                <FormControl name="name" onChange={this.onChangeSearch} type="text" placeholder="What do you want to learn?" aria-label="Search" className="mr-sm-2" />
+                <Link to={`/Search`}><Button onClick={this.onSubmitSearch} variant="outline-success" type="submit"><i className="fas fa-search"></i></Button></Link> 
               </Form>
             </Navbar.Collapse>
-            <div className="header-right">
-              <Link className="sigin" to="/SigIn/" onClick={this.complete}>Sig in</Link>
-              <Link className="sigin" to="/SigUp/" onClick={this.complete}>Sig up</Link>
-          </div>
+            {
+              isAuthenticated ? authLinks : guestLinks
+            }
           </Navbar>
         </Container>
       </div>
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth,
+    vocabulary: state.vocabulary,
+  }
+}
+const mapDispatchToProps = {
+  searchData
+}
 
-export default Header;
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));

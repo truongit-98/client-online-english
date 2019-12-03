@@ -209,9 +209,10 @@ p.card-text {
   font-size: 13px;
   opacity: 0.6;
 }
-
 a.btn.btn-primary {
   width: 100%;
-  background: #15bef5;
+  background: #fff200;
   border: none;
+  color: black;
 }
+

@@ -26,3 +26,31 @@ a.card-link {
 .container.body .col-md-3 {
 	margin-top: 30px;
 }
+.list-vocabulary {display: inline-block;background: #febf10;/* color: black; */padding: 5px 10px;margin-bottom: 23px;box-sizing: border-box;}
+
+.list-vocabulary a {
+	color: #000000bf;
+	font-family: initial;
+	font-size: 17px;
+	text-decoration: none;
+}
+
+.list-vocabulary:hover {
+  background: #febf10a1;
+}
+div#title-1 {
+	margin-top: 20px;
+	background: #febf10;
+	width: 15%;
+	padding: 5px -8px;
+	box-sizing: border-box;
+	position: relative;
+}
+
+div#title-1 p {
+	padding: 5px -1px;
+	font-family: initial;
+	font-size: 17px;
+}
+
+div#title-1:before {content: '';position: absolute;width: 600%;height: 1px;background: #febf10;bottom: 0;}
