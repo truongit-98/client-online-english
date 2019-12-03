@@ -1,8 +1,21 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
+import { connect } from 'react-redux';
 import './Home.css';
+import ListVocabulary from './ListVocabulary';
+import ListGrammar from './ListGrammar';
+import ListMussic from './ListMussic';
+
 class Home extends Component {
   render() {
+    const {topicItem} = this.props.vocabulary;
+    const { isAuthenticated} = this.props.auth;
+    const authLinks = (
+    <Link to="/" id="btn-start">Xin chào bạn!</Link>
+    )
+    const guestLinks = (
+      <Link to="/SigUp/" id="btn-start">Đăng ký thành viên</Link>
+    )
     return (
       <main>
         <section className="benner-wrapper">
@@ -18,7 +31,9 @@ class Home extends Component {
                 <div id="title-left-top">
                  <h1 id="title">Nền Tảng Học Tiếng Anh Thông Minh</h1>
                  <p id="content-title">Online EngLish là nền tảng ngôn ngữ, được xây dựng nhằm giúp học sinh, sinh viên Việt Nam xoá bỏ rào cản Anh ngữ.</p>
-                 <Link to="/SigUp/" id="btn-start">Đăng ký thành viên</Link>
+                  {
+                    isAuthenticated ? authLinks : guestLinks
+                  }
                  <p id="content-title-free"><Link to="/">Trải nghiệm miễn phí!</Link></p>
                 </div>
               </div>
@@ -103,173 +118,33 @@ class Home extends Component {
             <div className="caurse-content">
               <ul className="nav nav-tabs">
                 <li className="nav-item">
-                  <a className="nav-link active" data-toggle="tab" href="#home">Tất cả</a>
+                  <a className="nav-link active" data-toggle="tab" href="#menu1">Học từ vựng</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" data-toggle="tab" href="#menu1">Học từ vựng</a>
+                  <a className="nav-link" data-toggle="tab" href="#menu2">Luyện ngữ pháp</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" data-toggle="tab" href="#menu3">Luyện ngữ pháp</a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" data-toggle="tab" href="#menu4">Học tiếng anh qua bài hát</a>
+                  <a className="nav-link" data-toggle="tab" href="#menu3">Học tiếng anh qua bài hát</a>
                 </li>
               </ul>
             <div className="tab-content">
-              <div className="tab-pane container active" id="home">
+              <div className="tab-pane container active" id="menu1">
                 <div className="card-wrap">
-                  <div className="card i2">
-                    <img src="https://natural.voca.vn/assets/imgs/products/natural-english-b2-2019-11557910845.jpeg" className="card-img-top" alt=""/>
-                    <div className="card-body">
-                      <div className="card-Title">NATURAL ENGLISH B2 (2019)</div>
-                      <p className="card-text">Natural English B2 là khóa học tiếng Anh giao tiếp online dựa trên phương pháp tiếp cận tự nhiên, Natural English B2 phù hợp cho các bạn có trình độ tiếng Anh cao trung cấp.</p>
-                      <a href="/" className="btn btn-primary">Xem thông tin</a>
-                    </div>
-                  </div>
-                  <div className="card i2">
-                    <img src="https://natural.voca.vn/assets/imgs/products/natural-english-b2-2019-11557910845.jpeg" className="card-img-top" alt=""/>
-                    <div className="card-body">
-                      <div className="card-Title">NATURAL ENGLISH B2 (2019)</div>
-                      <p className="card-text">Natural English B2 là khóa học tiếng Anh giao tiếp online dựa trên phương pháp tiếp cận tự nhiên, Natural English B2 phù hợp cho các bạn có trình độ tiếng Anh cao trung cấp.</p>
-                      <a href="/" className="btn btn-primary">Xem thông tin</a>
-                    </div>
-                  </div>
-                  <div className="card i2">
-                    <img src="https://natural.voca.vn/assets/imgs/products/natural-english-b2-2019-11557910845.jpeg" className="card-img-top" alt=""/>
-                    <div className="card-body">
-                      <div className="card-Title">NATURAL ENGLISH B2 (2019)</div>
-                      <p className="card-text">Natural English B2 là khóa học tiếng Anh giao tiếp online dựa trên phương pháp tiếp cận tự nhiên, Natural English B2 phù hợp cho các bạn có trình độ tiếng Anh cao trung cấp.</p>
-                      <a href="/" className="btn btn-primary">Xem thông tin</a>
-                    </div>
-                  </div>
-                  <div className="card i2">
-                    <img src="https://natural.voca.vn/assets/imgs/products/natural-english-b2-2019-11557910845.jpeg" className="card-img-top" alt=""/>
-                    <div className="card-body">
-                      <div className="card-Title">NATURAL ENGLISH B2 (2019)</div>
-                      <p className="card-text">Natural English B2 là khóa học tiếng Anh giao tiếp online dựa trên phương pháp tiếp cận tự nhiên, Natural English B2 phù hợp cho các bạn có trình độ tiếng Anh cao trung cấp.</p>
-                      <a href="/" className="btn btn-primary">Xem thông tin</a>
-                    </div>
-                  </div>
-                  <div className="card i2">
-                    <img src="https://natural.voca.vn/assets/imgs/products/natural-english-b2-2019-11557910845.jpeg" className="card-img-top" alt=""/>
-                    <div className="card-body">
-                      <div className="card-Title">NATURAL ENGLISH B2 (2019)</div>
-                      <p className="card-text">Natural English B2 là khóa học tiếng Anh giao tiếp online dựa trên phương pháp tiếp cận tự nhiên, Natural English B2 phù hợp cho các bạn có trình độ tiếng Anh cao trung cấp.</p>
-                      <a href="/" className="btn btn-primary">Xem thông tin</a>
-                    </div>
-                  </div>
-                  <div className="card i2">
-                    <img src="https://natural.voca.vn/assets/imgs/products/natural-english-b2-2019-11557910845.jpeg" className="card-img-top" alt=""/>
-                    <div className="card-body">
-                      <div className="card-Title">NATURAL ENGLISH B2 (2019)</div>
-                      <p className="card-text">Natural English B2 là khóa học tiếng Anh giao tiếp online dựa trên phương pháp tiếp cận tự nhiên, Natural English B2 phù hợp cho các bạn có trình độ tiếng Anh cao trung cấp.</p>
-                      <a href="/" className="btn btn-primary">Xem thông tin</a>
-                    </div>
-                  </div>
+                  {
+                    topicItem.map((value, key) => (
+                      <ListVocabulary key={key} {...value}></ListVocabulary> 
+                    ))
+                  }           
                 </div>
               </div>
-              <div className="tab-pane container fade" id="menu1">
+              <div className="tab-pane container fade" id="menu2">
                 <div className="card-wrap">
-                  <div className="card i2">
-                    <img src="https://natural.voca.vn/assets/imgs/products/natural-english-b2-2019-11557910845.jpeg" className="card-img-top" alt=""/>
-                    <div className="card-body">
-                      <div className="card-Title">NATURAL ENGLISH B2 (2019)</div>
-                      <p className="card-text">Natural English B2 là khóa học tiếng Anh giao tiếp online dựa trên phương pháp tiếp cận tự nhiên, Natural English B2 phù hợp cho các bạn có trình độ tiếng Anh cao trung cấp.</p>
-                      <a href="/" className="btn btn-primary">Xem thông tin</a>
-                    </div>
-                  </div>
-                  <div className="card i2">
-                    <img src="https://natural.voca.vn/assets/imgs/products/natural-english-b2-2019-11557910845.jpeg" className="card-img-top" alt=""/>
-                    <div className="card-body">
-                      <div className="card-Title">NATURAL ENGLISH B2 (2019)</div>
-                      <p className="card-text">Natural English B2 là khóa học tiếng Anh giao tiếp online dựa trên phương pháp tiếp cận tự nhiên, Natural English B2 phù hợp cho các bạn có trình độ tiếng Anh cao trung cấp.</p>
-                      <a href="/" className="btn btn-primary">Xem thông tin</a>
-                    </div>
-                  </div>
-                  <div className="card i2">
-                    <img src="https://natural.voca.vn/assets/imgs/products/natural-english-b2-2019-11557910845.jpeg" className="card-img-top" alt=""/>
-                    <div className="card-body">
-                      <div className="card-Title">NATURAL ENGLISH B2 (2019)</div>
-                      <p className="card-text">Natural English B2 là khóa học tiếng Anh giao tiếp online dựa trên phương pháp tiếp cận tự nhiên, Natural English B2 phù hợp cho các bạn có trình độ tiếng Anh cao trung cấp.</p>
-                      <a href="/" className="btn btn-primary">Xem thông tin</a>
-                    </div>
-                  </div>
-                  <div className="card i2">
-                    <img src="https://natural.voca.vn/assets/imgs/products/natural-english-b2-2019-11557910845.jpeg" className="card-img-top" alt=""/>
-                    <div className="card-body">
-                      <div className="card-Title">NATURAL ENGLISH B2 (2019)</div>
-                      <p className="card-text">Natural English B2 là khóa học tiếng Anh giao tiếp online dựa trên phương pháp tiếp cận tự nhiên, Natural English B2 phù hợp cho các bạn có trình độ tiếng Anh cao trung cấp.</p>
-                      <a href="/" className="btn btn-primary">Xem thông tin</a>
-                    </div>
-                  </div>
-                  <div className="card i2">
-                    <img src="https://natural.voca.vn/assets/imgs/products/natural-english-b2-2019-11557910845.jpeg" className="card-img-top" alt=""/>
-                    <div className="card-body">
-                      <div className="card-Title">NATURAL ENGLISH B2 (2019)</div>
-                      <p className="card-text">Natural English B2 là khóa học tiếng Anh giao tiếp online dựa trên phương pháp tiếp cận tự nhiên, Natural English B2 phù hợp cho các bạn có trình độ tiếng Anh cao trung cấp.</p>
-                      <a href="/" className="btn btn-primary">Xem thông tin</a>
-                    </div>
-                  </div>
-                  <div className="card i2">
-                    <img src="https://natural.voca.vn/assets/imgs/products/natural-english-b2-2019-11557910845.jpeg" className="card-img-top" alt=""/>
-                    <div className="card-body">
-                      <div className="card-Title">NATURAL ENGLISH B2 (2019)</div>
-                      <p className="card-text">Natural English B2 là khóa học tiếng Anh giao tiếp online dựa trên phương pháp tiếp cận tự nhiên, Natural English B2 phù hợp cho các bạn có trình độ tiếng Anh cao trung cấp.</p>
-                      <a href="/" className="btn btn-primary">Xem thông tin</a>
-                    </div>
-                  </div>
+                  <ListGrammar></ListGrammar>
                 </div>
               </div>
-              <div className="tab-pane container fade" id="menu4">
+              <div className="tab-pane container fade" id="menu3">
                 <div className="card-wrap">
-                  <div className="card i2">
-                    <img src="https://natural.voca.vn/assets/imgs/products/natural-english-b2-2019-11557910845.jpeg" className="card-img-top" alt=""/>
-                    <div className="card-body">
-                      <div className="card-Title">NATURAL ENGLISH B2 (2019)</div>
-                      <p className="card-text">Natural English B2 là khóa học tiếng Anh giao tiếp online dựa trên phương pháp tiếp cận tự nhiên, Natural English B2 phù hợp cho các bạn có trình độ tiếng Anh cao trung cấp.</p>
-                      <a href="/" className="btn btn-primary">Xem thông tin</a>
-                    </div>
-                  </div>
-                  <div className="card i2">
-                    <img src="https://natural.voca.vn/assets/imgs/products/natural-english-b2-2019-11557910845.jpeg" className="card-img-top" alt=""/>
-                    <div className="card-body">
-                      <div className="card-Title">NATURAL ENGLISH B2 (2019)</div>
-                      <p className="card-text">Natural English B2 là khóa học tiếng Anh giao tiếp online dựa trên phương pháp tiếp cận tự nhiên, Natural English B2 phù hợp cho các bạn có trình độ tiếng Anh cao trung cấp.</p>
-                      <a href="/" className="btn btn-primary">Xem thông tin</a>
-                    </div>
-                  </div>
-                  <div className="card i2">
-                    <img src="https://natural.voca.vn/assets/imgs/products/natural-english-b2-2019-11557910845.jpeg" className="card-img-top" alt=""/>
-                    <div className="card-body">
-                      <div className="card-Title">NATURAL ENGLISH B2 (2019)</div>
-                      <p className="card-text">Natural English B2 là khóa học tiếng Anh giao tiếp online dựa trên phương pháp tiếp cận tự nhiên, Natural English B2 phù hợp cho các bạn có trình độ tiếng Anh cao trung cấp.</p>
-                      <a href="/" className="btn btn-primary">Xem thông tin</a>
-                    </div>
-                  </div>
-                  <div className="card i2">
-                    <img src="https://natural.voca.vn/assets/imgs/products/natural-english-b2-2019-11557910845.jpeg" className="card-img-top" alt=""/>
-                    <div className="card-body">
-                      <div className="card-Title">NATURAL ENGLISH B2 (2019)</div>
-                      <p className="card-text">Natural English B2 là khóa học tiếng Anh giao tiếp online dựa trên phương pháp tiếp cận tự nhiên, Natural English B2 phù hợp cho các bạn có trình độ tiếng Anh cao trung cấp.</p>
-                      <a href="/" className="btn btn-primary">Xem thông tin</a>
-                    </div>
-                  </div>
-                  <div className="card i2">
-                    <img src="https://natural.voca.vn/assets/imgs/products/natural-english-b2-2019-11557910845.jpeg" className="card-img-top" alt=""/>
-                    <div className="card-body">
-                      <div className="card-Title">NATURAL ENGLISH B2 (2019)</div>
-                      <p className="card-text">Natural English B2 là khóa học tiếng Anh giao tiếp online dựa trên phương pháp tiếp cận tự nhiên, Natural English B2 phù hợp cho các bạn có trình độ tiếng Anh cao trung cấp.</p>
-                      <a href="/" className="btn btn-primary">Xem thông tin</a>
-                    </div>
-                  </div>
-                  <div className="card i2">
-                    <img src="https://natural.voca.vn/assets/imgs/products/natural-english-b2-2019-11557910845.jpeg" className="card-img-top" alt=""/>
-                    <div className="card-body">
-                      <div className="card-Title">NATURAL ENGLISH B2 (2019)</div>
-                      <p className="card-text">Natural English B2 là khóa học tiếng Anh giao tiếp online dựa trên phương pháp tiếp cận tự nhiên, Natural English B2 phù hợp cho các bạn có trình độ tiếng Anh cao trung cấp.</p>
-                      <a href="/" className="btn btn-primary">Xem thông tin</a>
-                    </div>
-                  </div>
+                  <ListMussic></ListMussic>
                 </div>
               </div>
             </div>
@@ -280,5 +155,11 @@ class Home extends Component {
     );
   }
 }
+const mapStateToProps = (state, ownProps) => {
+  return {
+    auth: state.auth,
+    vocabulary: state.vocabulary
+  }
+}
 
-export default Home;
+export default connect(mapStateToProps)(Home);
