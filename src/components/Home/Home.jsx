@@ -9,6 +9,13 @@ import ListMussic from './ListMussic';
 class Home extends Component {
   render() {
     const {topicItem} = this.props.vocabulary;
+    const { isAuthenticated} = this.props.auth;
+    const authLinks = (
+    <Link to="/" id="btn-start">Xin chào bạn!</Link>
+    )
+    const guestLinks = (
+      <Link to="/SigUp/" id="btn-start">Đăng ký thành viên</Link>
+    )
     return (
       <main>
         <section className="benner-wrapper">
@@ -24,7 +31,9 @@ class Home extends Component {
                 <div id="title-left-top">
                  <h1 id="title">Nền Tảng Học Tiếng Anh Thông Minh</h1>
                  <p id="content-title">Online EngLish là nền tảng ngôn ngữ, được xây dựng nhằm giúp học sinh, sinh viên Việt Nam xoá bỏ rào cản Anh ngữ.</p>
-                 <Link to="/SigUp/" id="btn-start">Đăng ký thành viên</Link>
+                  {
+                    isAuthenticated ? authLinks : guestLinks
+                  }
                  <p id="content-title-free"><Link to="/">Trải nghiệm miễn phí!</Link></p>
                 </div>
               </div>
@@ -148,6 +157,7 @@ class Home extends Component {
 }
 const mapStateToProps = (state, ownProps) => {
   return {
+    auth: state.auth,
     vocabulary: state.vocabulary
   }
 }

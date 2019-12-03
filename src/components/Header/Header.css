@@ -92,3 +92,12 @@ a.sigin:hover {
   top: 46px;
   border-radius: 0px;
 }
+a.auth {
+  margin-right: 60px;
+}
+
+a.auth i {
+  padding: 10px;
+  background: #fff200;
+  border-radius: 50%;
+}

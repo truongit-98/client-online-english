@@ -1,7 +1,3 @@
-.music-video {
-	display: flex;
-	margin: 20px 0px;
-}
 
 .music-contet {
 	width: 45%;
@@ -9,6 +5,128 @@
 	font-family: initial;
 }
 
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 .music-contet h6 {
 	font-size: 20px;
+}
+
+.song-detail-top {
+    background: #000202;
+    padding: 10px 15px ;
+}
+
+.song-detail-lyric {
+    text-align: center;
+    height: 100%;
+    overflow-y: scroll;
+    background: linear-gradient(to left, #000202 0px, #000202 12px, #222222 12px, #222222 100%);
+    padding: 5px 2px 68px 0px;
+    position: relative;
+}
+
+.song-detail-lyric::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(10, 10, 10, 0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+.song-detail-lyric::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+.song-detail-lyric::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
+}
+
+
+ .span-child {
+    font-family: opensansregular;
+    font-size: 16px !important;
+    color: #fff;
+    line-height: 20px !important;
+    margin-bottom: 0px;
+    display: inline-block;
+    width: 100%;
+    padding: 10px 0px;
+    border-bottom: 1px solid #333333;
+    transition: 0.4s all ease;
+}
+
+.child-vi {
+    font-family: opensanslight;
+	font-size: 14px !important;
+	color: #fff ;
+    display: block;
+}
+
+.lyric-sentence {
+    padding: 0px 15px;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    transition: 0.4s all ease;
+}
+
+.song-detail-top .top-cover {
+    max-width: var(--max-width);
+    margin: auto;
+    height: 540px;
+}
+.song-detail-top .top-left {
+    width: 60%;
+    height: 100%;
+    float: left;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+
+.song-detail-top .top-right {
+    width: 40%;
+    height: 100%;
+    float: left;
+    padding-left: 15px;
+}
+
+.song-detail-lyric-cover {
+    position: relative;
+}
+
+.song-detail-lyric .lyric-sentence.lyric-active {
+    background: #fff;
+    transition: 0.4s all ease;
+}
+.song-detail-lyric .lyric-sentence.lyric-active .span-child {
+    color: #00c5f9;
+    border-color: #fff;
+    transition: 0.4s all ease;
+}
+
+.song-detail-lyric .lyric-sentence.lyric-active .span-child .child-vi {
+    color: #00c5f9;
+    border-color: #fff;
+}
+
+.err-lyric{
+    position: absolute;
+    left: 50%; 
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+}
+
+.err-lyric span{
+    font: 16px;
+    color: #F5F5F5 !important;
 }

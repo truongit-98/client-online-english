@@ -1,15 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {withRouter,Link} from 'react-router-dom';
 import './Account.css';
-// import { login } from '../../store/Action/authAction';
+import { login } from '../../store/Action/authAction';
 
 class SigIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      password: '',
+      userName: '',
+      passWord: '',
       msg: null
+    }
+  }
+  componentDidUpdate(prevProps) {
+    const { error} = this.props;
+    if (error !== prevProps.error) {
+      // Check for register error
+      if (error.userID === 'login_fail') {
+        this.setState({ msg: error.msg.msg });
+      } else {
+        this.setState({ msg: null });
+      }
     }
   }
   onChange = e => {
@@ -17,11 +29,14 @@ class SigIn extends Component {
   };
   onSubmit = e => {
     e.preventDefault();
-    // const { email, password } = this.state;
-    // const user = {
-    //   email,
-    //   password
-    // };
+    const { userName, passWord } = this.state;
+    const user = {
+      userName,
+      passWord
+    };
+    // Attempt to login
+    this.props.login(user);
+    //this.props.history.push('/');
   };
   render() {
     return (
@@ -31,13 +46,18 @@ class SigIn extends Component {
             <div className="card card-signin my-5">
               <div className="card-body b1">
                 <h5 className="card-title text-center">Sign In</h5>
+                {
+                  this.state.msg ? (
+                    <alert color='danger'>{this.state.msg}</alert>
+                  ) : null
+                }
                 <form className="form-signin" onSubmit={this.onSubmit}>
                   <div className="form-label-group">
-                    <input type="email" name="email" id="inputEmail" className="form-control" placeholder="Email address" onChange={this.onChange} required autofocus />
-                    <label htmlFor="inputEmail">Email address</label>
+                    <input type="userName" name="userName" id="userName" className="form-control" placeholder="Email address" onChange={this.onChange} required autoFocus/>
+                    <label htmlFor="userName">userName</label>
                   </div>
                   <div className="form-label-group">
-                    <input type="password" name="password" id="inputPassword" className="form-control" placeholder="Password" onChange={this.onChange} required />
+                    <input type="password" name="passWord" id="inputPassword" className="form-control" placeholder="Password" onChange={this.onChange} required autoFocus/>
                     <label htmlFor="inputPassword">Password</label>
                   </div>
                   <button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
@@ -55,11 +75,12 @@ class SigIn extends Component {
 }
 const mapStateToProps = (state, ownProps) => {
   return {
+    isAuthenticated: state.auth.isAuthenticated,
     error: state.error
   }
 }
 const mapDispatchToProps = {
-  
+  login
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SigIn);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SigIn));

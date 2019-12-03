@@ -41,6 +41,19 @@ class Header extends Component {
     this.setState({ loadingBarProgress: 0 });
   };
   render() {
+    const { isAuthenticated} = this.props.auth;
+    const authLinks = (
+      <div className="header-right">
+        <Link className="auth" to="/" onClick={this.complete}><i className="fas fa-user-circle"></i></Link>
+        <Link className="sigin" to="/" onClick={this.complete}>log out</Link>
+      </div>
+    );
+    const guestLinks = (
+      <div className="header-right">
+        <Link className="sigin" to="/SigIn/" onClick={this.complete}>Sig in</Link>
+        <Link className="sigin" to="/SigUp/" onClick={this.complete}>Sig up</Link>
+      </div>
+    );
     return (
       <div className="header">
          <LoadingBar
@@ -67,10 +80,9 @@ class Header extends Component {
                 <Link to={`/Search`}><Button onClick={this.onSubmitSearch} variant="outline-success" type="submit"><i className="fas fa-search"></i></Button></Link> 
               </Form>
             </Navbar.Collapse>
-            <div className="header-right">
-              <Link className="sigin" to="/SigIn/" onClick={this.complete}>Sig in</Link>
-              <Link className="sigin" to="/SigUp/" onClick={this.complete}>Sig up</Link>
-          </div>
+            {
+              isAuthenticated ? authLinks : guestLinks
+            }
           </Navbar>
         </Container>
       </div>
@@ -79,6 +91,7 @@ class Header extends Component {
 }
 const mapStateToProps = (state) => {
   return {
+    auth: state.auth,
     vocabulary: state.vocabulary,
   }
 }
