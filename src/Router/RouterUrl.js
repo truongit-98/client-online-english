@@ -1,5 +1,5 @@
-import React,{Component} from 'react';
-import {Route, Switch } from "react-router-dom";
+import React, { Component } from 'react';
+import { Route, Switch } from "react-router-dom";
 import Home from '../components/Home/Home';
 import Vocabulary from '../components/Vocabulary/Vocabulary';
 import Grammar from '../components/Grammar/Grammar';
@@ -26,8 +26,8 @@ class RouterUrl extends Component {
         <Route path="/TestToeicDetail/" exact component={TestToeicDetail} />
         <Route path="/grammar/" exact component={Grammar} />
         <Route path="/GrammarDetail/" exact component={GrammarDetail} />
-        <Route path="/Music/" exact component={Music} />
-        <Route path="/MusicDetail/" exact component={MusicDetail} />
+        <Route path="/Music" exact component={Music} />
+        <Route path="/Music/:songID" exact component={MusicDetail} />
         <Route path="/Search" exact component={VocabularySearch} />
         <Route path="/SigIn/" exact component={SigIn} />
         <Route path="/SigUp/" exact component={SigUp} />
