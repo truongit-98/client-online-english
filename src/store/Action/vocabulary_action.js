@@ -42,7 +42,7 @@ export const getThemeVocabulary = (topicName) => dispatch=> {
 //api search
 export const searchData = ((history, name) => dispatch => {
   axios.get(`/api/vocabularies/search?q=${name}`)
-  .then(res =>
+  .then(res => 
     dispatch({
       type: actionType.get_data_search_vocabulary,
       payload_search: history.push({

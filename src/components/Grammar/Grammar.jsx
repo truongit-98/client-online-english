@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import GrammarItem from './GrammarItem';
 
 class Grammar extends Component {
 	render() {
+		console.log(this.props.match);
+		
+		const {grammarIteam} = this.props.grammar;
 		return (
 			<div className="vocabulary-wrap">
 				<div className="vocabulary-item-title">
@@ -12,67 +17,21 @@ class Grammar extends Component {
 				</div>
 				<div className="container body">
 				<div className="card-wrap">
-					<div className="card i2">
-						<div className="card-body">
-							<img src="/assets/img/1.PNG" className="card-img-top" alt=""/>
-							<div className="card-Title">Ngữ pháp tiếng anh cơ bản</div>
-							<p className="card-text"> Đại từ nhân xưng và động từ tobe, tính từ sở hữu</p>
-							<a href="/grammarDetail/" className="btn btn-primary">Xem ngay</a>
-						</div>
-					</div>
-					<div className="card i2">
-						<div className="card-body">
-							<img src="/assets/img/1.PNG" className="card-img-top" alt=""/>
-							<div className="card-Title">Ngữ pháp tiếng anh cơ bản</div>
-							<p className="card-text"> Đại từ nhân xưng và động từ tobe, tính từ sở hữu</p>
-							<a href="/grammarDetail/" className="btn btn-primary">Xem ngay</a>
-						</div>
-					</div>
-					<div className="card i2">
-						<div className="card-body">
-							<img src="/assets/img/1.PNG" className="card-img-top" alt=""/>
-							<div className="card-Title">Ngữ pháp tiếng anh cơ bản</div>
-							<p className="card-text"> Đại từ nhân xưng và động từ tobe, tính từ sở hữu</p>
-							<a href="/grammarDetail/" className="btn btn-primary">Xem ngay</a>
-						</div>
-					</div>
-					<div className="card i2">
-						<div className="card-body">
-							<img src="/assets/img/1.PNG" className="card-img-top" alt=""/>
-							<div className="card-Title">Ngữ pháp tiếng anh cơ bản</div>
-							<p className="card-text"> Đại từ nhân xưng và động từ tobe, tính từ sở hữu</p>
-							<a href="/grammarDetail/" className="btn btn-primary">Xem ngay</a>
-						</div>
-					</div>
-					<div className="card i2">
-						<div className="card-body">
-							<img src="/assets/img/1.PNG" className="card-img-top" alt=""/>
-							<div className="card-Title">Ngữ pháp tiếng anh cơ bản</div>
-							<p className="card-text"> Đại từ nhân xưng và động từ tobe, tính từ sở hữu</p>
-							<a href="/grammarDetail/" className="btn btn-primary">Xem ngay</a>
-						</div>
-					</div>
-					<div className="card i2">
-						<div className="card-body">
-							<img src="/assets/img/1.PNG" className="card-img-top" alt=""/>
-							<div className="card-Title">Ngữ pháp tiếng anh cơ bản</div>
-							<p className="card-text"> Đại từ nhân xưng và động từ tobe, tính từ sở hữu</p>
-							<a href="/grammarDetail/" className="btn btn-primary">Xem ngay</a>
-						</div>
-					</div>
-					<div className="card i2">
-						<div className="card-body">
-							<img src="/assets/img/1.PNG" className="card-img-top" alt=""/>
-							<div className="card-Title">Ngữ pháp tiếng anh cơ bản</div>
-							<p className="card-text"> Đại từ nhân xưng và động từ tobe, tính từ sở hữu</p>
-							<a href="/grammarDetail/" className="btn btn-primary">Xem ngay</a>
-						</div>
-					</div>
+					{
+						grammarIteam.map((value, key) => 
+							<GrammarItem key={key} {...value}/>
+						)
+					}
 				</div>
 				</div>
 			</div>
 		);
 	}
 }
+const mapStateToProps = (state, ownProps) => {
+	return {
+		grammar: state.grammar
+	}
+}
 
-export default Grammar;
+export default connect(mapStateToProps)(Grammar);

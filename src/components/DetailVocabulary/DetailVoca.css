@@ -101,11 +101,9 @@ div#item {
 	width: 50%;
 	text-align: initial;
 	margin: 0 auto;
-	background: #fff200;
 	padding: 8px;
 }
 div#test-item {
-	background: #fff200;
 	text-align: left;
 	width: 80%;
 	margin: 0 auto;

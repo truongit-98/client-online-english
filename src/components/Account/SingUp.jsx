@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Account.css';
 import { connect } from 'react-redux';
-import {Link} from 'react-router-dom';
+import {withRouter,Link} from 'react-router-dom';
 import { register } from '../../store/Action/authAction';
 import './Account.css';
 
@@ -27,9 +27,10 @@ class SigUp extends Component {
       passWord
     };
     // Attempt to register
-    this.props.register(newUser);
+    this.props.register(newUser)
   };
   render() {
+    const {isAuthenticated} = this.props.auth;
     return (
       <div className="container">
         <div className="row">
@@ -37,11 +38,6 @@ class SigUp extends Component {
             <div className="card card-signin my-5">
               <div className="card-body b1">
                 <h5 className="card-title text-center">Sign up</h5>
-                {
-                  this.state.msg ? (
-                    <alert color='danger'>{this.state.msg}</alert>
-                  ) : null 
-                }
                 <form className="form-signin" onSubmit={this.onSubmit}>
                   <div className="form-label-group">
                     <input type="text" name="userName" id="name" onChange={this.onChange} className="form-control" placeholder="Tên tài khoản" required autoFocus />
@@ -56,6 +52,9 @@ class SigUp extends Component {
                     <label htmlFor="inputPassword">Password</label>
                   </div>
                   <button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign up</button>
+                  {isAuthenticated &&
+                    <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                  }
                   <hr className="my-4" />
                   <button className="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i className="fab fa-google mr-2" /> Sign in with Google</button>
                   <button className="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i className="fab fa-facebook-f mr-2" /> Sign in with Facebook</button>
@@ -70,12 +69,11 @@ class SigUp extends Component {
 }
 const mapStateToProps = (state, ownProps) => {
   return {
-    isAuthenticated: state.auth.isAuthenticated,
-    error: state.error
+    auth: state.auth,
   }
 }
 const mapDispatchToProps = {
   register
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SigUp);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SigUp));

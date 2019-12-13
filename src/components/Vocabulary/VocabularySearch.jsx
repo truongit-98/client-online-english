@@ -8,6 +8,27 @@ class VocabularySearch extends Component {
   }
   render() {
     const {item} = this.props.location.state;
+    const getdata = (
+      item.map((value, key)  => (
+        <div className="col-md-3 search" key={key} data-toggle="modal" data-target={"#exampleModalCenter" + value.vocaID}>
+          <div className="card">
+            <div className="card-body">
+              <div className="card-icon">
+                <i className="fas fa-book"/>
+              </div>
+              <h3 className="card-Title">{value.word}</h3>
+              <p className="card-Content">Hệ thống học từ vựng tiếng Anh</p>
+              <hr className="hr-card"/>
+              <div className="card-link">Xem chi tiết</div>
+            </div>
+          </div>
+        </div>
+        )
+      )
+    )
+    const getError = (
+      <div>Không có kết quả phù hợp.</div>
+    )
     return (
       <div className="vocabulary-wrap">
         <div className="vocabulary-item-title">
@@ -19,22 +40,7 @@ class VocabularySearch extends Component {
         <div className="container body">
           <div className="row">
           {
-            item.map((value, key)  => (
-              <div className="col-md-3 search" key={key} data-toggle="modal" data-target={"#exampleModalCenter" + value.vocaID}>
-                <div className="card">
-                  <div className="card-body">
-                    <div className="card-icon">
-                      <i className="fas fa-book"/>
-                    </div>
-                    <h3 className="card-Title">{value.word}</h3>
-                    <p className="card-Content">Hệ thống học từ vựng tiếng Anh</p>
-                    <hr className="hr-card"/>
-                    <div className="card-link">Xem chi tiết</div>
-                  </div>
-                </div>
-              </div>
-              )
-            )
+            item ? getdata : getError
           }
           </div>
         </div>
