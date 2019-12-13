@@ -1,0 +1,22 @@
+.col-md-3 .song-name {
+    font-family: opensanssemibold;
+    font-size: 16px;
+    line-height: 20px;
+    color: #00c5f9;;
+    margin-bottom: 0px;
+    margin-top: 10px;
+    text-align: left;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+.col-md-3 .song-singer{
+    font-family: opensansregular;
+    font-size: 13px;
+    line-height: 18px;
+    color: #AEAEAE;
+    margin-bottom: 0px;
+    margin-top: 8px;
+    text-align: left;
+}
