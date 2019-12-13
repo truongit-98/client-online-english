@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import {withRouter, Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import './Home.css';
 import ListVocabulary from './ListVocabulary';
@@ -9,9 +9,10 @@ import ListMussic from './ListMussic';
 class Home extends Component {
   render() {
     const {topicItem} = this.props.vocabulary;
-    const { isAuthenticated} = this.props.auth;
+    const {grammarIteam} = this.props.grammar;
+    const { isAuthenticated, user} = this.props.auth;
     const authLinks = (
-    <Link to="/" id="btn-start">Xin chào bạn!</Link>
+      <Link to="/" id="btn-start">{ user ? `xin chào ${user.userName}` : 'xin chào bạn!'}</Link>
     )
     const guestLinks = (
       <Link to="/SigUp/" id="btn-start">Đăng ký thành viên</Link>
@@ -139,7 +140,11 @@ class Home extends Component {
               </div>
               <div className="tab-pane container fade" id="menu2">
                 <div className="card-wrap">
-                  <ListGrammar></ListGrammar>
+                  {
+                    grammarIteam.map((value, key) => 
+                      <ListGrammar key={key} {...value}></ListGrammar>
+                    )
+                  }
                 </div>
               </div>
               <div className="tab-pane container fade" id="menu3">
@@ -158,8 +163,9 @@ class Home extends Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     auth: state.auth,
-    vocabulary: state.vocabulary
+    vocabulary: state.vocabulary,
+    grammar: state.grammar
   }
 }
 
-export default connect(mapStateToProps)(Home);
+export default withRouter(connect(mapStateToProps)(Home));

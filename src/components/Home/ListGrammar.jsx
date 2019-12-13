@@ -4,10 +4,10 @@ class ListGrammar extends Component {
   render() {
     return (
       <div className="card i2">
-        <img src="https://natural.voca.vn/assets/imgs/products/natural-english-b2-2019-11557910845.jpeg" className="card-img-top" alt=""/>
+        <img src="https://thinhviendaminh.net/wp-content/uploads/2017/02/grammar.jpg" className="card-img-top" alt=""/>
         <div className="card-body">
-          <div className="card-Title">NATURAL ENGLISH B2 (2019)</div>
-          <p className="card-text">Natural English B2 là khóa học tiếng Anh giao tiếp online dựa trên phương pháp tiếp cận tự nhiên, Natural English B2 phù hợp cho các bạn có trình độ tiếng Anh cao trung cấp.</p>
+          <div className="card-Title">Grammar</div>
+          <p className="card-text">{this.props.topicGrammarContent}</p>
           <a href="/" className="btn btn-primary">Xem thông tin</a>
         </div>
       </div>

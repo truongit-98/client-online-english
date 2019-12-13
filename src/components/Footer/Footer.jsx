@@ -42,7 +42,6 @@ class Footer extends Component {
             </div>
             <div className="col-xs-6 col-sm-4 col-md-2">
             <h5 className="footer-item">Head Office </h5>
-              <a className="footer-link" href="/">FANKEN Ltd. Company</a>
               <a className="footer-link" href="/">Address: Hoàng Quốc Việt,Cầu giấy, Hà nội.</a>
               <a className="footer-link" href="/">Email: trung9977.mta@gmail.com</a>
               <a className="footer-link" href="/">Phone: 0392389977</a>

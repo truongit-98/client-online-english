@@ -14,7 +14,14 @@
   font-weight: 300;
   font-size: 1.5rem;
 }
-
+div#error {
+  text-align: center;
+  background: #dc3939ba;
+  padding: 8px 0px;
+  width: 80%;
+  margin: 20px auto;
+  color: black;
+}
 .card-signin .card-body {
   padding: 2rem;
 }

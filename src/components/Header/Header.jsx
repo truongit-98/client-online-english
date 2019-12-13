@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import {withRouter, Link} from "react-router-dom";
+import {withRouter, Link, NavLink} from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
 import { connect } from 'react-redux';
 import {searchData} from "../../store/Action/vocabulary_action"
+import {logout, loadUser} from "../../store/Action/authAction"
 import './Header.css'
 import {Container,
         Navbar,
@@ -21,6 +22,9 @@ class Header extends Component {
       name: '',
     }
   }
+  // componentWillMount(){
+  //   this.props.loadUser()
+  // }
   onChangeSearch = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -45,7 +49,7 @@ class Header extends Component {
     const authLinks = (
       <div className="header-right">
         <Link className="auth" to="/" onClick={this.complete}><i className="fas fa-user-circle"></i></Link>
-        <Link className="sigin" to="/" onClick={this.complete}>log out</Link>
+        <NavLink className="sigin" to="/SigIn/" onClick={this.props.logout}>log out</NavLink>
       </div>
     );
     const guestLinks = (
@@ -96,7 +100,9 @@ const mapStateToProps = (state) => {
   }
 }
 const mapDispatchToProps = {
-  searchData
+  searchData,
+  logout,
+  // loadUser
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));

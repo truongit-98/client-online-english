@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { returnErrors } from './errorAction';
-
 import {
 	user_loading,
 	user_loaded,
@@ -11,26 +10,26 @@ import {
 	register_success,
 	register_fail
 } from '../Cons/auth_actionType';
+import { history } from '../history';
 
-// Check token & load user
-export const loadUser = () => (dispatch, getState) => {
-  // User loading
-  dispatch({ type: user_loading });
-
-  axios.get('/api/auth/user', tokenConfig(getState))
-    .then(res =>
-      dispatch({
-        type: user_loaded,
-        payload: res.data
-      })
-    )
-    .catch(err => {
-      dispatch(returnErrors(err.response.data, err.response.status));
-      dispatch({
-        type: auth_error
-      });
-    });
-};
+// // Check token & load user
+// export const loadUser = () => (dispatch, getState) => {
+//   // User loading
+//   dispatch({ type: user_loading });
+//   axios.get('/users/getAll', tokenConfig(getState))
+//     .then(res =>
+//       dispatch({
+//         type: user_loaded,
+//         payload: res.data.Data[0]
+//       })
+//     )
+//     .catch(err => {
+//       dispatch(returnErrors(err.response.data, err.response.status));
+//       dispatch({
+//         type: auth_error
+//       });
+//     });
+// };
 
 // Register User
 export const register = ({ userName, email, passWord }) => dispatch => {
@@ -50,7 +49,8 @@ export const register = ({ userName, email, passWord }) => dispatch => {
         dispatch({
           type: register_success,
           payload: res.data
-        })
+        });
+        history.push("/SigIn/");
       }
       else{
         dispatch({
@@ -61,23 +61,19 @@ export const register = ({ userName, email, passWord }) => dispatch => {
   )
   .catch(err => {
     dispatch(
-      returnErrors(err.response.data, err.response.status, 'register_fail')
+      returnErrors(err.response.data, err.response.status)
     );
-    dispatch({
-      type: register_fail
-    });
   });
 };
 
 // Login User
-export const login = ({ userName, passWord }, history) => dispatch => {
+export const login = ({ userName, passWord}) => dispatch => {
   // Headers
   const config = {
     headers: {
       'Content-Type': 'application/json'
     }
   };
-
   // Request body
   const body = JSON.stringify({ userName, passWord });
 
@@ -87,8 +83,10 @@ export const login = ({ userName, passWord }, history) => dispatch => {
         dispatch({
           type: login_success,
           payload: res.data
-        });
-      } else{
+        })
+        history.push("/");
+      }else 
+      {
         dispatch({
           type: login_fail
         });
@@ -96,21 +94,22 @@ export const login = ({ userName, passWord }, history) => dispatch => {
     })
     .catch(err => {
       dispatch(
-        returnErrors(err.response.data, err.response.status, 'login_fail')
+        returnErrors(err.response.data, err.response.status)
       );
-      dispatch({
-        type: login_fail
-      });
     });
 };
 
 // Logout User
-export const logout = () => {
-  return {
-    type: logout_success
-  };
+// export const logout = () => {
+//   return {
+//     type: logout_success
+//   };
+// };
+export const logout = () => dispatch=> {
+    dispatch({
+      type: logout_success
+    })
 };
-
 // Setup config/headers and token
 export const tokenConfig = getState => {
   // Get token from localstorage
