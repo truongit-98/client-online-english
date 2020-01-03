@@ -23,7 +23,7 @@ class MusicDetail extends Component {
     let id = this.props.match.params.songID;
     console.log(id);
     const {loadSongDetail} = this.props;
-    loadSongDetail(1);
+    loadSongDetail(id);
   }
   removeActive(){
 	var element = document.getElementsByClassName('lyric-sentence lyric-active')[0];
@@ -75,13 +75,12 @@ class MusicDetail extends Component {
   render() {
     const {data, isLoading, error} = this.props; 
     return (
-      ( !isLoading && error == null) ? 
+      ( !isLoading && error == null && data.length !== 0) ? 
       ( <div className="container" >
           <div className="music-video song-detail-top">
             <div className="top-cover">
               <div className="top-left">
-        { url ? <ReactPlayer ref={(player) => this.player=player} className="react-player" width="100%" height="100%" url={url} controls="true" playing="true" onPlay={() => this.autoStartLyric()} ></ReactPlayer> : <button class="btn btn-primary" type="button" disabled><span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Loading...</button>   }
-        
+        <ReactPlayer ref={(player) => this.player=player} className="react-player" width="100%" height="100%" url={data[0].url} controls="true" playing="true" onPlay={() => this.autoStartLyric()} ></ReactPlayer>
               </div>
               <div className="top-right">
           <div className="song-detail-lyric" id="song-detail">
@@ -131,10 +130,3 @@ const mapDispatchToProps = {
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MusicDetail));
-<RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
-											<FormControlLabel value={item.ExamAnswers[0].answerID} control={<Radio />} label={item.ExamAnswers[0].answerContent} />
-											<FormControlLabel value={item.ExamAnswers[1].answerID} control={<Radio />} label={item.ExamAnswers[1].answerContent} />
-											<FormControlLabel value={item.ExamAnswers[2].answerID} control={<Radio />} label={item.ExamAnswers[2].answerContent} />
-											<FormControlLabel value={item.ExamAnswers[3].answerID} control={<Radio />} label={item.ExamAnswers[3].answerContent} />
-										</RadioGroup>
-									</FormControl>
