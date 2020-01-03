@@ -17,7 +17,7 @@ class GrammarDetail extends Component {
 					position="relative"/>
 					<div className="gram-content">
 						<h6>Tổng kết bài học: </h6>
-						<p className="p-1" ><span  class="mr-2">1. Câu nghi vấn:</span> 
+						<p className="p-1" ><span  className="mr-2">1. Câu nghi vấn:</span> 
 							{
 								item.grammarContent.split(";")[0]
 							}
@@ -25,19 +25,19 @@ class GrammarDetail extends Component {
 							2. Tính từ sở hữu: my, your, our, their, her, his, its <br/>
 							3. Động từ tobe: I am . She/He/It is . You/We/They are */}
 						</p>
-						<p className="p-1"><span  class="mr-2">2. Câu khẳng định:</span> 
+						<p className="p-1"><span  className="mr-2">2. Câu khẳng định:</span> 
 							{
 								item.grammarContent.split(";")[1]
 							}
 						</p>
-						<p className="p-1"><span class="mr-2">3. Câu phủ định:</span>
+						<p className="p-1"><span className="mr-2">3. Câu phủ định:</span>
 							{
 								item.grammarContent.split(";")[2]
 							}
 						</p>
 					</div>
 				</div>
-				<div className="detail-relate-to">
+				{/* <div className="detail-relate-to">
 					<h6 id="relate-title">Bài học liên quan:</h6>
 					<div className="detail-relate-to-body">
 						<div className="card i2">
@@ -73,7 +73,7 @@ class GrammarDetail extends Component {
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> */}
 			</div>
 		);
 	}

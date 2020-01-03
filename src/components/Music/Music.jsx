@@ -34,22 +34,21 @@ class Music extends Component {
 				</div>
 			</div>
 			<div className="container body">
+			<div className="row">
 					{ (!isLoading && (error === null))  ? 
-						data.map((item) => {
+						data.map((item, key) => {
 							return (
-								<div className="row">
-									<div className="col-md-3 test" onClick={()=>this.handleClick(item)}>
-										<div className="card">
-											<div className="card-body">
-												<div className="card-icon">
-												<	i class="fas fa-music"></i>
-												</div>
-											<h3 className="card-Title">Bài hát</h3>
-											<p className="card-Content song-name" >{item.songName}</p>
-											<p className="card-Content song-singer" >{item.author}</p>
-											<hr className="hr-card"/>
-											<a className="card-link" href={`/Music/${item.songID}`}>Xem ngay</a>
+								<div className="col-md-3 test" onClick={()=>this.handleClick(item)}  key={key}>
+									<div className="card">
+										<div className="card-body">
+											<div className="card-icon">
+											<	i className="fas fa-music"></i>
 											</div>
+										<h3 className="card-Title">Bài hát</h3>
+										<p className="card-Content song-name" >{item.songName}</p>
+										<p className="card-Content song-singer" >{item.author}</p>
+										<hr className="hr-card"/>
+										<a className="card-link" href={`/Music/${item.songID}`}>Xem ngay</a>
 										</div>
 									</div>
 								</div>
@@ -57,6 +56,7 @@ class Music extends Component {
 						}
 						) : ( (error === null) ? <Loading/>	: <SvError></SvError>)
 					} 
+					</div>
 			</div>
 		</div>
 		);

@@ -24,9 +24,28 @@ class Vocabulary extends Component {
           </div>
           <div className="row">
             {
-              topicItem.map((value, key) => 
-              <ItemsTopic key={key} {...value}></ItemsTopic>
-              )
+              topicItem.map((value, key) => {
+                if(key === 0){
+                  return(
+                    <div className="col-md-3" key={key}>
+                      <div className="card">
+                        <div className="card-body">
+                          <div className="card-icon">
+                            <i className="fas fa-book"/>
+                          </div>
+                          <h3 className="card-Title">{value.topicName}</h3>
+                          <p className="card-Content">Hệ thống học từ vựng tiếng Anh</p>
+                          <hr className="hr-card"/>
+                          <Link className="card-link" to={`/DetailVoca/${value.topicName}`}>Học ngay</Link>
+                        </div>
+                      </div>
+                    </div>
+                  )
+                }
+                else return (
+                  <ItemsTopic key={key} {...value}></ItemsTopic>
+                )
+              })
             }
           </div>
         </div>

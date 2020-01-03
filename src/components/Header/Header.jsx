@@ -22,9 +22,6 @@ class Header extends Component {
       name: '',
     }
   }
-  // componentWillMount(){
-  //   this.props.loadUser()
-  // }
   onChangeSearch = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -80,10 +77,11 @@ class Header extends Component {
                 </NavDropdown>
               </Nav>
               <Form inline onSubmit={this.onSubmitSearch}>
-                <FormControl name="name" onChange={this.onChangeSearch} type="text" placeholder="What do you want to learn?" aria-label="Search" className="mr-sm-2" />
+                <FormControl name="name" onChange={this.onChangeSearch} type="search" placeholder="What do you want to learn?" aria-label="Search" className="mr-sm-2" />
                 <Link to={`/Search`}><Button onClick={this.onSubmitSearch} variant="outline-success" type="submit"><i className="fas fa-search"></i></Button></Link> 
               </Form>
             </Navbar.Collapse>
+           
             {
               isAuthenticated ? authLinks : guestLinks
             }

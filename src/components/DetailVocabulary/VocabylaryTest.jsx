@@ -19,8 +19,7 @@ class VocabylaryTest extends Component {
     event.preventDefault();
     if(this.state.name === this.props.word){
       Swal.fire({
-        position: 'center',
-        icon: 'success',
+        position: 'top-end',
         title: 'Đáp án chính xác!',
         showConfirmButton: false,
         timer: 1500
@@ -29,8 +28,7 @@ class VocabylaryTest extends Component {
     }
     else{ 
       Swal.fire({
-        position: 'center',
-        icon: 'error',
+        position: 'top-end',
         title: 'Đáp án sai!',
         showConfirmButton: false,
         timer: 1500

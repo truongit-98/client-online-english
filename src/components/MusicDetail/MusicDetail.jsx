@@ -20,10 +20,10 @@ class MusicDetail extends Component {
 
   componentDidMount(){
    // this.intervalID = setInterval(this.handleTime, 700);
-    let id = this.props.match.params.songID;
-    console.log(id);
+    //let id = this.props.match.params.songID;
+    // console.log(id);
     const {loadSongDetail} = this.props;
-    loadSongDetail(1);
+    loadSongDetail(this.props.match.params.songID);
   }
   removeActive(){
 	var element = document.getElementsByClassName('lyric-sentence lyric-active')[0];
@@ -73,18 +73,20 @@ class MusicDetail extends Component {
   }
   
   render() {
+
     const {data, isLoading, error} = this.props; 
+    console.log(data);
     return (
-      ( !isLoading && error == null) ? 
+      ( !isLoading && error == null && data.length !== 0) ? 
       ( <div className="container" >
-          <div className="music-video song-detail-top">
+          <div className="music-video song-detail-top mt-4">
             <div className="top-cover">
               <div className="top-left">
         {/* { url ? <ReactPlayer ref={(player) => this.player=player} className="react-player" width="100%" height="100%" url={url} controls="true" playing="true" onPlay={() => this.autoStartLyric()} ></ReactPlayer> : <button class="btn btn-primary" type="button" disabled><span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Loading...</button>   */}
-        {/* <ReactPlayer ref={(player) => this.player=player} className="react-player" width="100%" height="100%" url={data[0].url} controls="true" playing="true" onPlay={() => this.autoStartLyric()} ></ReactPlayer> */}
+        <ReactPlayer ref={(player) => this.player=player} className="react-player" width="100%" height="100%" url={data[0].url} controls="true" playing="true" onPlay={() => this.autoStartLyric()} ></ReactPlayer>
               </div>
               <div className="top-right">
-          {/* <div className="song-detail-lyric" id="song-detail">
+          <div className="song-detail-lyric" id="song-detail">
             <div className="song-detail-lyric-cover">
             {
               data[0].Subtitles.length > 0 ? data[0].Subtitles.map((item) => {
@@ -97,20 +99,7 @@ class MusicDetail extends Component {
             }
             </div>
             {(data[0].url || data[0].Subtitles.length < 0) ? '' : <div className='err-lyric' ><span>Không thể hiển thị Lyric!!!</span></div>}
-          </div> */}
-              </div>
-            </div>
           </div>
-          <div className="detail-relate-to">
-            <h6 id="relate-title">Bài hát liên quan:</h6>
-            <div className="detail-relate-to-body">
-              <div className="card i2">
-                <div className="card-body">
-                  <img src="/assets/img/1.PNG" className="card-img-top" alt=""/>
-                  <div className="card-Title">Bài hát</div>
-                  <p className="card-text">Cơn mưa ngang qua</p>
-                  <a href="/grammarDetail/" className="btn btn-primary">Xem ngay</a>
-                </div>
               </div>
             </div>
           </div>
