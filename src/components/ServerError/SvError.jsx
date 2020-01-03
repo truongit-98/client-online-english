@@ -7,7 +7,7 @@ class SvError extends Component {
             <div>
                 <div className="error-notification">
 					<div className="error-message">
-					<i class="fa fa-exclamation-triangle"><span> Server đang gặp sự cố. Vui lòng quay lại sau !!!</span></i>
+					<i className="fa fa-exclamation-triangle"><span> Server đang gặp sự cố. Vui lòng quay lại sau !!!</span></i>
 					</div>
 				</div>
             </div>

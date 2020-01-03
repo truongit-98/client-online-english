@@ -17,7 +17,7 @@ export const loadSong = () => (dispatch) => {
             if (res.status !== 200) {
                 dispatch(fetchMusicError());
             }
-            dispatch(fetchMusicSuccess());
+            dispatch(fetchMusicSuccess(res.data));
         })
         .catch(err => {
             console.log(err);
@@ -27,12 +27,12 @@ export const loadSong = () => (dispatch) => {
 
 export const loadSongDetail = (id) => (dispatch) => {
     dispatch(fetchSubtitlesPending());
-    axios.get(`api/song/${id}/subtitles`, { withCredentials: true })
+    axios.get(`/api/song/${id}/subtitles`, { withCredentials: true })
         .then((res) => {
             if (res.status !== 200) {
                 dispatch(fetchSubtitlesError());
             }
-            dispatch(fetchSubtitlesSuccess());
+            dispatch(fetchSubtitlesSuccess(res.data));
         })
         .catch((err) => dispatch(fetchSubtitlesError(err)));
 }

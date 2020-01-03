@@ -7,6 +7,7 @@ import errorReducer from './Reducer/errorReducer';
 import authReducer from './Reducer/authReducer';
 import GrammarReducer from './Reducer/GrammarReducer';
 import musicReducer from './Reducer/musicReducer';
+import toeic from './Reducer/toeic';
 const initialState = {};
 const middleWare = [thunk, logger];
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -15,7 +16,8 @@ const myReducer = combineReducers({
   error: errorReducer,
   auth: authReducer,
   grammar: GrammarReducer,
-  music: musicReducer
+  music: musicReducer,
+  toeic: toeic,
 });
 var store = createStore(
   myReducer,

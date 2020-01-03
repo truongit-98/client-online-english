@@ -20,10 +20,10 @@ class MusicDetail extends Component {
 
   componentDidMount(){
    // this.intervalID = setInterval(this.handleTime, 700);
-    let id = this.props.match.params.songID;
-    console.log(id);
+    // let id = this.props.match.params.songID;
+    // console.log(id);
     const {loadSongDetail} = this.props;
-    loadSongDetail(1);
+    loadSongDetail(this.props.match.params.songID);
   }
   removeActive(){
 	var element = document.getElementsByClassName('lyric-sentence lyric-active')[0];
@@ -73,6 +73,7 @@ class MusicDetail extends Component {
   }
   
   render() {
+
     const {data, isLoading, error} = this.props; 
     return (
       ( !isLoading && error == null) ? 

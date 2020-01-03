@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter, Link } from 'react-router-dom';
 import GrammarItem from './GrammarItem';
+import {getDataGrammarDetail} from '../../store/Action/grammarAction';
 
 class Grammar extends Component {
 	render() {
-		console.log(this.props.match);
-		
 		const {grammarIteam} = this.props.grammar;
 		return (
 			<div className="vocabulary-wrap">
@@ -18,9 +18,11 @@ class Grammar extends Component {
 				<div className="container body">
 				<div className="card-wrap">
 					{
-						grammarIteam.map((value, key) => 
-							<GrammarItem key={key} {...value}/>
-						)
+						grammarIteam.map((value, key) => {
+							return(
+								<GrammarItem key={key} {...value}/>
+							)
+						})
 					}
 				</div>
 				</div>
@@ -34,4 +36,4 @@ const mapStateToProps = (state, ownProps) => {
 	}
 }
 
-export default connect(mapStateToProps)(Grammar);
+export default withRouter(connect(mapStateToProps)(Grammar));

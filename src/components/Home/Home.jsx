@@ -10,9 +10,9 @@ class Home extends Component {
   render() {
     const {topicItem} = this.props.vocabulary;
     const {grammarIteam} = this.props.grammar;
-    const { isAuthenticated, user} = this.props.auth;
+    const { isAuthenticated, Data} = this.props.auth;
     const authLinks = (
-      <Link to="/" id="btn-start">{ user ? `xin chào ${user.userName}` : 'xin chào bạn!'}</Link>
+      <Link to="/" id="btn-start">{ Data ? `xin chào ${Data.userName}` : 'xin chào bạn!'}</Link>
     )
     const guestLinks = (
       <Link to="/SigUp/" id="btn-start">Đăng ký thành viên</Link>
@@ -132,18 +132,22 @@ class Home extends Component {
               <div className="tab-pane container active" id="menu1">
                 <div className="card-wrap">
                   {
-                    topicItem.map((value, key) => (
-                      <ListVocabulary key={key} {...value}></ListVocabulary> 
-                    ))
+                    topicItem.map((value, key) => {
+                      return(
+                        <ListVocabulary key={key} {...value}></ListVocabulary> 
+                      )
+                    })
                   }           
                 </div>
               </div>
               <div className="tab-pane container fade" id="menu2">
                 <div className="card-wrap">
                   {
-                    grammarIteam.map((value, key) => 
-                      <ListGrammar key={key} {...value}></ListGrammar>
-                    )
+                    grammarIteam.map((value, key) => {
+                        return(
+                          <ListGrammar key={key} {...value}></ListGrammar>
+                        )
+                    })
                   }
                 </div>
               </div>

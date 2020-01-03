@@ -13,25 +13,31 @@ import SigIn from '../components/Account/SigIn';
 import SigUp from '../components/Account/SingUp';
 import VocabularySearch from '../components/Vocabulary/VocabularySearch';
 import ListVocabulary from '../components/Vocabulary/ListVocabulary';
+import Header from '../components/Header/Header';
+import Footer from '../components/Footer/Footer';
 
 class RouterUrl extends Component {
   render() {
     return (
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/vocabulary/" exact component={Vocabulary} />
-        <Route path="/ListVocabulary/" exact component={ListVocabulary} />
-        <Route path="/DetailVoca/:topicName" exact component={DetailVoca} />
-        <Route path="/TestToeic/" exact component={TestToeic} />
-        <Route path="/TestToeicDetail/" exact component={TestToeicDetail} />
-        <Route path="/grammar/" exact component={Grammar} />
-        <Route path="/GrammarDetail/" exact component={GrammarDetail} />
-        <Route path="/Music" exact component={Music} />
-        <Route path="/Music/:songID" exact component={MusicDetail} />
-        <Route path="/Search" exact component={VocabularySearch} />
-        <Route path="/SigIn/" exact component={SigIn} />
-        <Route path="/SigUp/" exact component={SigUp} />
-      </Switch>
+      <div>
+        <Header />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/vocabulary/" exact component={Vocabulary} />
+          <Route path="/ListVocabulary/" exact component={ListVocabulary} />
+          <Route path="/DetailVoca/:topicName" exact component={DetailVoca} />
+          <Route path="/TestToeic/" exact component={TestToeic} />
+          <Route path="/TestToeicDetail/:id" exact component={TestToeicDetail} />
+          <Route path="/grammar/" exact component={Grammar} />
+          <Route path="/GrammarDetail/" exact component={GrammarDetail} />
+          <Route path="/Music" exact component={Music} />
+          <Route path="/Music/:songID" exact component={MusicDetail} />
+          <Route path="/Search" exact component={VocabularySearch} />
+          <Route path="/SigIn/" exact component={SigIn} />
+          <Route path="/SigUp/" exact component={SigUp} />
+        </Switch>
+        <Footer />
+      </div>
     );
   }
 }

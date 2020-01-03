@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './TestToeicDetail.css';
 import { makeStyles } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
@@ -6,6 +6,9 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import { fetchToeicDetailRequet } from '../../store/Action/toeic';
 
 const useStyles = makeStyles(theme => ({
   formControl: {
@@ -13,97 +16,54 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function TestToeicDetail() {
+function TestToeicDetail(props) {
   const classes = useStyles();
-  const [value, setValue] = React.useState();
+  const [value, setValue] = React.useState(null);
 
-  const handleChange = event => {
-    setValue(event.target.value);
-  };
-
+  const handleChange = (event) => {
+		if(event.target){
+			setValue(event.target.value);
+		}
+	};
+	// const handleOnclick = (data, type) => {
+	// 	if(data && type===0){
+	// 		settotalReading(totalReading+1);
+	// 	}
+	// 	else if(data && type===1){
+	// 		settotalListening(totalListening+1);
+	// 	}
+	// }
+  useEffect(() => { 
+    props.fetchToeicDetailRequet(props.match.params.id);
+  }, [])
+	const {toeicDetail} = props.toeic;
   return (
     <div className="container">
 			<span className="wrap-title">Bài làm</span>
 			<div className="test-toeic-detail">
 				<h4 className="test-title">Phần I: phần 1</h4>
-				<div className="test-toeic-detail-item">
-					<FormControl component="fieldset" className={classes.formControl}>
-						<h6 className="test-detail-text"><small>Câu 1: </small>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas voluptate labore officiis dolores fuga esse vero</h6>
-						<p className="text-detail-text-i1">Chọn đáp án đúng: </p>
-						<FormLabel component="legend"></FormLabel>
-						<RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
-							<FormControlLabel value="A" control={<Radio />} label="Đáp án A" />
-							<FormControlLabel value="B" control={<Radio />} label="Đáp án B" />
-							<FormControlLabel value="C" control={<Radio />} label="Đáp án C" />
-							<FormControlLabel value="D" control={<Radio />} label="Đáp án D" />
-						</RadioGroup>
-					</FormControl>
-				</div>
-				<div className="test-toeic-detail-item">
-					<FormControl component="fieldset" className={classes.formControl}>
-						<h6 className="test-detail-text"><small>Câu 2: </small>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas voluptate labore officiis dolores fuga esse vero</h6>
-						<p className="text-detail-text-i1">Chọn đáp án đúng: </p>
-						<FormLabel component="legend"></FormLabel>
-						<RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
-							<FormControlLabel value="A" control={<Radio />} label="Đáp án A" />
-							<FormControlLabel value="B" control={<Radio />} label="Đáp án B" />
-							<FormControlLabel value="C" control={<Radio />} label="Đáp án C" />
-							<FormControlLabel value="D" control={<Radio />} label="Đáp án D" />
-						</RadioGroup>
-					</FormControl>
-				</div>
-				<div className="test-toeic-detail-item">
-					<FormControl component="fieldset" className={classes.formControl}>
-						<h6 className="test-detail-text"><small>Câu 3: </small>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas voluptate labore officiis dolores fuga esse vero</h6>
-						<p className="text-detail-text-i1">Chọn đáp án đúng: </p>
-						<FormLabel component="legend"></FormLabel>
-						<RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
-							<FormControlLabel value="A" control={<Radio />} label="Đáp án A" />
-							<FormControlLabel value="B" control={<Radio />} label="Đáp án B" />
-							<FormControlLabel value="C" control={<Radio />} label="Đáp án C" />
-							<FormControlLabel value="D" control={<Radio />} label="Đáp án D" />
-						</RadioGroup>
-					</FormControl>
-				</div>
-				<div className="test-toeic-detail-item">
-					<FormControl component="fieldset" className={classes.formControl}>
-						<h6 className="test-detail-text"><small>Câu 4: </small>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas voluptate labore officiis dolores fuga esse vero</h6>
-						<p className="text-detail-text-i1">Chọn đáp án đúng: </p>
-						<FormLabel component="legend"></FormLabel>
-						<RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
-							<FormControlLabel value="A" control={<Radio />} label="Đáp án A" />
-							<FormControlLabel value="B" control={<Radio />} label="Đáp án B" />
-							<FormControlLabel value="C" control={<Radio />} label="Đáp án C" />
-							<FormControlLabel value="D" control={<Radio />} label="Đáp án D" />
-						</RadioGroup>
-					</FormControl>
-				</div>
-				<div className="test-toeic-detail-item">
-					<FormControl component="fieldset" className={classes.formControl}>
-						<h6 className="test-detail-text"><small>Câu 5: </small>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas voluptate labore officiis dolores fuga esse vero</h6>
-						<p className="text-detail-text-i1">Chọn đáp án đúng: </p>
-						<FormLabel component="legend"></FormLabel>
-						<RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
-							<FormControlLabel value="A" control={<Radio />} label="Đáp án A" />
-							<FormControlLabel value="B" control={<Radio />} label="Đáp án B" />
-							<FormControlLabel value="C" control={<Radio />} label="Đáp án C" />
-							<FormControlLabel value="D" control={<Radio />} label="Đáp án D" />
-						</RadioGroup>
-					</FormControl>
-				</div>
-				<div className="test-toeic-detail-item">
-					<FormControl component="fieldset" className={classes.formControl}>
-						<h6 className="test-detail-text"><small>Câu 6: </small>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas voluptate labore officiis dolores fuga esse vero</h6>
-						<p className="text-detail-text-i1">Chọn đáp án đúng: </p>
-						<FormLabel component="legend"></FormLabel>
-						<RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
-							<FormControlLabel value="A" control={<Radio />} label="Đáp án A" />
-							<FormControlLabel value="B" control={<Radio />} label="Đáp án B" />
-							<FormControlLabel value="C" control={<Radio />} label="Đáp án C" />
-							<FormControlLabel value="D" control={<Radio />} label="Đáp án D" />
-						</RadioGroup>
-					</FormControl>
-				</div>
+				{
+					toeicDetail.map((item, key) => {
+						if(key <= 20){
+							return (
+								<div className="test-toeic-detail-item" key={key}>
+									<FormControl component="fieldset" className={classes.formControl}>
+									<h6 className="test-detail-text"><small>Câu {key+1} </small>{item.questionContent}</h6>
+										<p className="text-detail-text-i1">Chọn đáp án đúng: </p>
+										<FormLabel component="legend"></FormLabel>
+										{/* 0:doc    1:nghe */}
+										<RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
+											<FormControlLabel value={item.ExamAnswers[0].answerID} control={<Radio />} label={item.ExamAnswers[0].answerContent} />
+											<FormControlLabel value={item.ExamAnswers[1].answerID} control={<Radio />} label={item.ExamAnswers[1].answerContent} />
+											<FormControlLabel value={item.ExamAnswers[2].answerID} control={<Radio />} label={item.ExamAnswers[2].answerContent} />
+											<FormControlLabel value={item.ExamAnswers[3].answerID} control={<Radio />} label={item.ExamAnswers[3].answerContent} />
+										</RadioGroup>
+									</FormControl>
+								</div>
+							)
+						}
+					})
+				}
 			</div>
 			<div className="test-toeic-detail">
 				<h4 className="test-title">Phần II: phần 2</h4>
@@ -124,71 +84,6 @@ export default function TestToeicDetail() {
 					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam, odio asperiores. Ab cupiditate unde deserunt minus accusamus nulla, dolores excepturi, fuga ex optio, delectus dolorem sequi iure eius. Vel, fuga?
 					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam, odio asperiores. Ab cupiditate unde deserunt minus accusamus nulla, dolores excepturi, fuga ex optio, delectus dolorem sequi iure eius. Vel, fuga?
 				</p>
-				<div className="test-toeic-detail-item">
-					<FormControl component="fieldset" className={classes.formControl}>
-						<h6 className="test-detail-text"><small>Câu 1: </small>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas voluptate labore officiis dolores fuga esse vero</h6>
-						<p className="text-detail-text-i1">Chọn đáp án đúng: </p>
-						<FormLabel component="legend"></FormLabel>
-						<RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
-							<FormControlLabel value="A" control={<Radio />} label="Đáp án A" />
-							<FormControlLabel value="B" control={<Radio />} label="Đáp án B" />
-							<FormControlLabel value="C" control={<Radio />} label="Đáp án C" />
-							<FormControlLabel value="D" control={<Radio />} label="Đáp án D" />
-						</RadioGroup>
-					</FormControl>
-				</div>
-				<div className="test-toeic-detail-item">
-					<FormControl component="fieldset" className={classes.formControl}>
-						<h6 className="test-detail-text"><small>Câu 2: </small>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas voluptate labore officiis dolores fuga esse vero</h6>
-						<p className="text-detail-text-i1">Chọn đáp án đúng: </p>
-						<FormLabel component="legend"></FormLabel>
-						<RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
-							<FormControlLabel value="A" control={<Radio />} label="Đáp án A" />
-							<FormControlLabel value="B" control={<Radio />} label="Đáp án B" />
-							<FormControlLabel value="C" control={<Radio />} label="Đáp án C" />
-							<FormControlLabel value="D" control={<Radio />} label="Đáp án D" />
-						</RadioGroup>
-					</FormControl>
-				</div>
-				<div className="test-toeic-detail-item">
-					<FormControl component="fieldset" className={classes.formControl}>
-						<h6 className="test-detail-text"><small>Câu 3: </small>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas voluptate labore officiis dolores fuga esse vero</h6>
-						<p className="text-detail-text-i1">Chọn đáp án đúng: </p>
-						<FormLabel component="legend"></FormLabel>
-						<RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
-							<FormControlLabel value="A" control={<Radio />} label="Đáp án A" />
-							<FormControlLabel value="B" control={<Radio />} label="Đáp án B" />
-							<FormControlLabel value="C" control={<Radio />} label="Đáp án C" />
-							<FormControlLabel value="D" control={<Radio />} label="Đáp án D" />
-						</RadioGroup>
-					</FormControl>
-				</div>
-				<div className="test-toeic-detail-item">
-					<FormControl component="fieldset" className={classes.formControl}>
-						<h6 className="test-detail-text"><small>Câu 4: </small>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas voluptate labore officiis dolores fuga esse vero</h6>
-						<p className="text-detail-text-i1">Chọn đáp án đúng: </p>
-						<FormLabel component="legend"></FormLabel>
-						<RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
-							<FormControlLabel value="A" control={<Radio />} label="Đáp án A" />
-							<FormControlLabel value="B" control={<Radio />} label="Đáp án B" />
-							<FormControlLabel value="C" control={<Radio />} label="Đáp án C" />
-							<FormControlLabel value="D" control={<Radio />} label="Đáp án D" />
-						</RadioGroup>
-					</FormControl>
-				</div>
-				<div className="test-toeic-detail-item">
-					<FormControl component="fieldset" className={classes.formControl}>
-						<h6 className="test-detail-text"><small>Câu 5: </small>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas voluptate labore officiis dolores fuga esse vero</h6>
-						<p className="text-detail-text-i1">Chọn đáp án đúng: </p>
-						<FormLabel component="legend"></FormLabel>
-						<RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
-							<FormControlLabel value="A" control={<Radio />} label="Đáp án A" />
-							<FormControlLabel value="B" control={<Radio />} label="Đáp án B" />
-							<FormControlLabel value="C" control={<Radio />} label="Đáp án C" />
-							<FormControlLabel value="D" control={<Radio />} label="Đáp án D" />
-						</RadioGroup>
-					</FormControl>
-				</div>
 			</div>
 			<div className="button-summit">
 				<input type="submit" className="btn btn-info i1" value="Nộp bài" data-toggle="modal" data-target="#myModal"/>	
@@ -212,3 +107,17 @@ export default function TestToeicDetail() {
     </div>
   );
 }
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+	return {
+		fetchToeicDetailRequet: bindActionCreators(fetchToeicDetailRequet, dispatch)
+	}
+}
+
+const mapStateToProps = (state, ownProps) => {
+	return {
+		toeic: state.toeic
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TestToeicDetail);

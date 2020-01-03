@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from "react-router-dom";
 
 class ListGrammar extends Component {
   render() {
@@ -8,7 +9,7 @@ class ListGrammar extends Component {
         <div className="card-body">
           <div className="card-Title">Grammar</div>
           <p className="card-text">{this.props.topicGrammarContent}</p>
-          <a href="/" className="btn btn-primary">Xem thông tin</a>
+          <Link to="/" className="btn btn-primary">Xem ngay</Link>
         </div>
       </div>
     );

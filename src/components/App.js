@@ -4,10 +4,8 @@ import { Router } from "react-router-dom";
 import { connect } from 'react-redux';
 import {getDataTopic} from '../store/Action/vocabulary_action'
 import {getDataGrammar} from '../store/Action/grammarAction'
-import Header from './Header/Header';
-import Footer from './Footer/Footer';
-import RouterUrl from '../Router/RouterUrl';
 import { history } from '../store/history';
+import Main from '../Router/main';
 
 class App extends Component {
   componentDidMount(){
@@ -17,10 +15,8 @@ class App extends Component {
   render() {
     return (
       <Router history={history}>
-        <Header/>
-        <RouterUrl/>
+        <Main/>
         <hr/>
-        <Footer/>
       </Router>
     );
   }
