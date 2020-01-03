@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import {withRouter,Link} from 'react-router-dom';
 import './Account.css';
 import { login } from '../../store/Action/authAction';
+import FacebookLogin  from 'react-facebook-login/dist/facebook-login-render-props';
 
 class SigIn extends Component {
   constructor(props) {
@@ -11,7 +12,9 @@ class SigIn extends Component {
       userName: '',
       passWord: '',
       msg: null
-    }
+	}
+	this.componentClicked = this.componentClicked.bind(this);
+	this.responseFacebook = this.responseFacebook.bind(this);
   }
   componentDidUpdate(prevProps) {
     const { error} = this.props;
@@ -38,6 +41,15 @@ class SigIn extends Component {
     this.props.login(user);
     //this.props.history.push('/');
   };
+
+  responseFacebook(response) {
+	console.log(response);
+  }
+
+  componentClicked = () => {
+	console.log( "Clicked!" )
+  }
+
   render() {
     return (
       <div className="container">
@@ -63,7 +75,18 @@ class SigIn extends Component {
                   <button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
                   <hr className="my-4" />
                   <button className="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i className="fab fa-google mr-2" /> Sign in with Google</button>
-                  <button className="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i className="fab fa-facebook-f mr-2" /> Sign in with Facebook</button>
+                  <FacebookLogin
+					appId="1019524528401409"
+					autoLoad
+					fields="name,email,picture"
+					scope="public_profile, email"	
+					callback={this.responseFacebook}
+					onClick={this.responseFacebook}
+					render={renderProps => (
+						<button onClick={renderProps.onClick} className="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i className="fab fa-facebook-f mr-2" /> Login in with Facebook</button>
+					)}
+				   />
+				  
                 </form>
               </div>
             </div>
