@@ -37,7 +37,7 @@ class GrammarDetail extends Component {
 						</p>
 					</div>
 				</div>
-				<div className="detail-relate-to">
+				{/* <div className="detail-relate-to">
 					<h6 id="relate-title">Bài học liên quan:</h6>
 					<div className="detail-relate-to-body">
 						<div className="card i2">
@@ -73,7 +73,7 @@ class GrammarDetail extends Component {
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> */}
 			</div>
 		);
 	}

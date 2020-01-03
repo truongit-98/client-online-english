@@ -16,7 +16,6 @@ class App extends Component {
     return (
       <Router history={history}>
         <Main/>
-        <hr/>
       </Router>
     );
   }

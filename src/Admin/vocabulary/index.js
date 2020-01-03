@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class Header extends Component {
+class Vocabulary extends Component {
 	render() {
 		return (
 			<div>
-				bo
+				củ lìn
 			</div>
 		);
 	}
 }
 
-export default Header;
+export default Vocabulary;

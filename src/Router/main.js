@@ -6,12 +6,10 @@ import MainAdmin from '../Admin/main';
 class Main extends Component {
   render() {
     return (
-			<div>
-				<Switch>
-					<Route path="/"  component={RouterUrl}/>
-					<Route path="/admin" component={MainAdmin} />
-				</Switch>
-			</div>
+			<Switch>
+				<Route path="/admin" component={MainAdmin} />
+				<Route path="/"  component={RouterUrl}/>
+			</Switch>
     );
   }
 }

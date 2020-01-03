@@ -22,6 +22,7 @@ function TestToeicDetail(props) {
 
   const handleChange = (event) => {
 		if(event.target){
+		  console.log(event.target.value);
 			setValue(event.target.value);
 		}
 	};
@@ -37,6 +38,7 @@ function TestToeicDetail(props) {
     props.fetchToeicDetailRequet(props.match.params.id);
   }, [])
 	const {toeicDetail} = props.toeic;
+	console.log(toeicDetail);
   return (
     <div className="container">
 			<span className="wrap-title">Bài làm</span>
@@ -52,7 +54,7 @@ function TestToeicDetail(props) {
 										<p className="text-detail-text-i1">Chọn đáp án đúng: </p>
 										<FormLabel component="legend"></FormLabel>
 										{/* 0:doc    1:nghe */}
-										<RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
+										<RadioGroup aria-label="gender" name="gender1" value={value} aonChange={handleChange}>
 											<FormControlLabel value={item.ExamAnswers[0].answerID} control={<Radio />} label={item.ExamAnswers[0].answerContent} />
 											<FormControlLabel value={item.ExamAnswers[1].answerID} control={<Radio />} label={item.ExamAnswers[1].answerContent} />
 											<FormControlLabel value={item.ExamAnswers[2].answerID} control={<Radio />} label={item.ExamAnswers[2].answerContent} />
@@ -66,24 +68,6 @@ function TestToeicDetail(props) {
 				}
 			</div>
 			<div className="test-toeic-detail">
-				<h4 className="test-title">Phần II: phần 2</h4>
-				<p className="test-p2">
-					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam, odio asperiores. Ab cupiditate unde deserunt minus accusamus nulla, dolores excepturi, fuga ex optio, delectus dolorem sequi iure eius. Vel, fuga?
-					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam, odio asperiores. Ab cupiditate unde deserunt minus accusamus nulla, dolores excepturi, fuga ex optio, delectus dolorem sequi iure eius. Vel, fuga?
-					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam, odio asperiores. Ab cupiditate unde deserunt minus accusamus nulla, dolores excepturi, fuga ex optio, delectus dolorem sequi iure eius. Vel, fuga?
-					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam, odio asperiores. Ab cupiditate unde deserunt minus accusamus nulla, dolores excepturi, fuga ex optio, delectus dolorem sequi iure eius. Vel, fuga?
-					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam, odio asperiores. Ab cupiditate unde deserunt minus accusamus nulla, dolores excepturi, fuga ex optio, delectus dolorem sequi iure eius. Vel, fuga?
-					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam, odio asperiores. Ab cupiditate unde deserunt minus accusamus nulla, dolores excepturi, fuga ex optio, delectus dolorem sequi iure eius. Vel, fuga?
-					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam, odio asperiores. Ab cupiditate unde deserunt minus accusamus nulla, dolores excepturi, fuga ex optio, delectus dolorem sequi iure eius. Vel, fuga?
-					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam, odio asperiores. Ab cupiditate unde deserunt minus accusamus nulla, dolores excepturi, fuga ex optio, delectus dolorem sequi iure eius. Vel, fuga?
-					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam, odio asperiores. Ab cupiditate unde deserunt minus accusamus nulla, dolores excepturi, fuga ex optio, delectus dolorem sequi iure eius. Vel, fuga?
-					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam, odio asperiores. Ab cupiditate unde deserunt minus accusamus nulla, dolores excepturi, fuga ex optio, delectus dolorem sequi iure eius. Vel, fuga?
-					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam, odio asperiores. Ab cupiditate unde deserunt minus accusamus nulla, dolores excepturi, fuga ex optio, delectus dolorem sequi iure eius. Vel, fuga?
-					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam, odio asperiores. Ab cupiditate unde deserunt minus accusamus nulla, dolores excepturi, fuga ex optio, delectus dolorem sequi iure eius. Vel, fuga?
-					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam, odio asperiores. Ab cupiditate unde deserunt minus accusamus nulla, dolores excepturi, fuga ex optio, delectus dolorem sequi iure eius. Vel, fuga?
-					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam, odio asperiores. Ab cupiditate unde deserunt minus accusamus nulla, dolores excepturi, fuga ex optio, delectus dolorem sequi iure eius. Vel, fuga?
-					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam, odio asperiores. Ab cupiditate unde deserunt minus accusamus nulla, dolores excepturi, fuga ex optio, delectus dolorem sequi iure eius. Vel, fuga?
-				</p>
 			</div>
 			<div className="button-summit">
 				<input type="submit" className="btn btn-info i1" value="Nộp bài" data-toggle="modal" data-target="#myModal"/>	
