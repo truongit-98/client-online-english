@@ -80,11 +80,11 @@ class MusicDetail extends Component {
           <div className="music-video song-detail-top">
             <div className="top-cover">
               <div className="top-left">
-        {/* { url ? <ReactPlayer ref={(player) => this.player=player} className="react-player" width="100%" height="100%" url={url} controls="true" playing="true" onPlay={() => this.autoStartLyric()} ></ReactPlayer> : <button class="btn btn-primary" type="button" disabled><span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Loading...</button>   */}
-        {/* <ReactPlayer ref={(player) => this.player=player} className="react-player" width="100%" height="100%" url={data[0].url} controls="true" playing="true" onPlay={() => this.autoStartLyric()} ></ReactPlayer> */}
+        { url ? <ReactPlayer ref={(player) => this.player=player} className="react-player" width="100%" height="100%" url={url} controls="true" playing="true" onPlay={() => this.autoStartLyric()} ></ReactPlayer> : <button class="btn btn-primary" type="button" disabled><span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Loading...</button>   }
+        
               </div>
               <div className="top-right">
-          {/* <div className="song-detail-lyric" id="song-detail">
+          <div className="song-detail-lyric" id="song-detail">
             <div className="song-detail-lyric-cover">
             {
               data[0].Subtitles.length > 0 ? data[0].Subtitles.map((item) => {
@@ -97,7 +97,7 @@ class MusicDetail extends Component {
             }
             </div>
             {(data[0].url || data[0].Subtitles.length < 0) ? '' : <div className='err-lyric' ><span>Không thể hiển thị Lyric!!!</span></div>}
-          </div> */}
+          </div>
               </div>
             </div>
           </div>
@@ -131,3 +131,10 @@ const mapDispatchToProps = {
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MusicDetail));
+<RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
+											<FormControlLabel value={item.ExamAnswers[0].answerID} control={<Radio />} label={item.ExamAnswers[0].answerContent} />
+											<FormControlLabel value={item.ExamAnswers[1].answerID} control={<Radio />} label={item.ExamAnswers[1].answerContent} />
+											<FormControlLabel value={item.ExamAnswers[2].answerID} control={<Radio />} label={item.ExamAnswers[2].answerContent} />
+											<FormControlLabel value={item.ExamAnswers[3].answerID} control={<Radio />} label={item.ExamAnswers[3].answerContent} />
+										</RadioGroup>
+									</FormControl>
